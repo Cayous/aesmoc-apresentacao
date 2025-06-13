@@ -1,0 +1,354 @@
+/* ARQUIVO: slides/slide-01-titulo/style.css */
+
+/* Container principal - CORRIGIDO para tela cheia */
+.slide-01 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #0a0e27;
+    overflow: hidden;
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: none !important;
+    max-height: none !important;
+}
+
+/* Background animado com gradiente */
+.slide-01::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 20% 50%, rgba(5, 242, 219, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(92, 219, 149, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(44, 95, 93, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 10%, rgba(255, 107, 107, 0.1) 0%, transparent 40%);
+    animation: gradientShift 20s ease-in-out infinite;
+    z-index: 1;
+}
+
+@keyframes gradientShift {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(90deg) scale(1.1); }
+    50% { transform: rotate(180deg) scale(1); }
+    75% { transform: rotate(270deg) scale(1.1); }
+}
+
+/* Partículas flutuantes */
+.particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(5, 242, 219, 0.8);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(5, 242, 219, 0.5);
+}
+
+@keyframes float {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+}
+
+/* Grid de luz no fundo */
+.grid-lines {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(5, 242, 219, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(5, 242, 219, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 1;
+    opacity: 0.3;
+    animation: gridPulse 4s ease-in-out infinite;
+}
+
+@keyframes gridPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.1; }
+}
+
+/* Container do conteúdo */
+.content-wrapper {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    max-width: 1200px;
+    padding: 0 40px;
+    transition: transform 0.1s ease;
+}
+
+/* Logo container com efeito glow */
+.logo-container {
+    margin-bottom: 60px;
+    position: relative;
+    display: inline-block;
+    animation: logoFloat 3s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-10px) scale(1.05); }
+}
+
+.logo-container img {
+    width: 180px;
+    height: auto;
+    filter: drop-shadow(0 0 30px rgba(5, 242, 219, 0.5));
+    transition: all 0.3s ease;
+}
+
+.logo-container::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(5, 242, 219, 0.3) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    animation: logoPulse 2s ease-in-out infinite;
+    z-index: -1;
+}
+
+@keyframes logoPulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.5; }
+    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+}
+
+/* Título principal com efeito neon - TAMANHO AJUSTADO */
+.main-title {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 800;
+    margin-bottom: 30px;
+    background: linear-gradient(135deg, #05F2DB 0%, #5CDB95 50%, #FF6B6B 100%);
+    background-size: 200% 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: gradientText 4s ease infinite, glowText 2s ease-in-out infinite alternate;
+    position: relative;
+    line-height: 1.1;
+}
+
+@keyframes gradientText {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes glowText {
+    from { filter: drop-shadow(0 0 20px rgba(5, 242, 219, 0.5)); }
+    to { filter: drop-shadow(0 0 30px rgba(5, 242, 219, 0.8)) drop-shadow(0 0 40px rgba(92, 219, 149, 0.5)); }
+}
+
+/* Texto digitado - TAMANHO AJUSTADO */
+.typewriter-container {
+    height: 80px;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.typewriter {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 300;
+    color: #ffffff;
+    text-shadow: 0 0 20px rgba(5, 242, 219, 0.5);
+    position: relative;
+    display: inline-block;
+}
+
+.cursor {
+    display: inline-block;
+    width: 3px;
+    height: 2.5rem;
+    background: #05F2DB;
+    margin-left: 5px;
+    animation: blink 1s infinite;
+    box-shadow: 0 0 10px #05F2DB;
+}
+
+@keyframes blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
+
+/* Subtítulo animado - TAMANHO AJUSTADO */
+.subtitle {
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 60px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 3s;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    line-height: 1.4;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Cards dos apresentadores */
+.apresentadores-container {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 4s;
+}
+
+.apresentador-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px 40px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.apresentador-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #05F2DB, #5CDB95, #FF6B6B, #05F2DB);
+    background-size: 400% 400%;
+    border-radius: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    animation: borderGradient 4s ease infinite;
+    z-index: -1;
+}
+
+@keyframes borderGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.apresentador-card:hover::before {
+    opacity: 1;
+}
+
+.apresentador-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(5, 242, 219, 0.3);
+}
+
+.apresentador-nome {
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.apresentador-empresa {
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    color: #05F2DB;
+    font-weight: 300;
+}
+
+/* Botão CTA */
+.cta-button {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #05F2DB 0%, #5CDB95 100%);
+    color: #0a0e27;
+    padding: 18px 50px;
+    border: none;
+    border-radius: 50px;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(5, 242, 219, 0.4);
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 5s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cta-button:hover {
+    transform: translateX(-50%) translateY(-3px);
+    box-shadow: 0 8px 30px rgba(5, 242, 219, 0.6);
+}
+
+/* Indicador de scroll */
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards, bounce 2s ease-in-out infinite;
+    animation-delay: 6s;
+}
+
+@keyframes fadeIn {
+    to { opacity: 0.6; }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.scroll-indicator i {
+    font-size: 2rem;
+    color: #05F2DB;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .logo-container img {
+        width: 120px;
+    }
+    
+    .apresentadores-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .apresentador-card {
+        padding: 20px 30px;
+    }
+    
+    .cta-button {
+        padding: 15px 40px;
+    }
+}
