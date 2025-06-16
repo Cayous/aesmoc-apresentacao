@@ -226,7 +226,7 @@ function createSpecialEffects() {
 
 // Criar flash de luz
 function createLightFlash() {
-    const slide = document.querySelector('.slide-02');
+    const slide = document.querySelector('.slide-03');
     if (!slide) return;
     
     const flash = document.createElement('div');
@@ -269,8 +269,8 @@ function cleanupSlide02() {
 }
 
 // Função principal de inicialização
-function initSlide02() {
-    console.log('🎨 Inicializando Slide 02 - Cartão com Imagem Real');
+function initSlide03SolucaoCartao3d() {
+    console.log('🎨 Inicializando Slide 03 - Solução Cartao 3D');
     
     // Limpar slide anterior
     cleanupSlide02();
@@ -295,15 +295,15 @@ function initSlide02() {
 }
 
 // Registrar função globalmente para o Reveal.js
-window.initslide02cartao3d = initSlide02;
+window.initSlide03SolucaoCartao3d = initSlide03SolucaoCartao3d;
 
 // Auto-inicializar se o slide estiver presente
-if (document.querySelector('.slide-02')) {
+if (document.querySelector('.slide-03')) {
     const checkIfActive = setInterval(() => {
-        const slide = document.querySelector('.slide-02');
+        const slide = document.querySelector('.slide-03');
         if (slide && (slide.closest('.present') || slide.closest('.future'))) {
             clearInterval(checkIfActive);
-            initSlide02();
+            initSlide03SolucaoCartao3d();
         }
     }, 100);
 }

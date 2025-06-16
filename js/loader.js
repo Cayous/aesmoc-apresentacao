@@ -2,8 +2,8 @@
 // Lista de slides em ordem
 const slidesList = [
     'slide-01-titulo',
-    'slide-02-cartao-3d',
-    'slide-03-problema',
+    'slide-02-o-problema',
+    'slide-03-solução-cartao3d',
     'slide-04-cartao-destaque',
     'slide-05-como-funciona',
     'slide-06-demonstracao',

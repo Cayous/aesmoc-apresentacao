@@ -98,10 +98,26 @@ function initializeReveal() {
         // Chamar função de inicialização do slide atual
         const slideName = event.currentSlide.dataset.slideName;
         if (slideName) {
-            const initFunction = `init${slideName.replace(/-/g, '')}`;
+            // Converter nome do slide para nome da função
+            // slide-01-titulo -> initSlide01
+            // slide-02-o-problema -> initSlide02OProblema
+            let initFunction = '';
+            if (slideName === 'slide-01-titulo') {
+                initFunction = 'initSlide01';
+            } else if (slideName === 'slide-02-o-problema') {
+                initFunction = 'initSlide02OProblema';
+            } else if (slideName === 'slide-03-solução-cartao3d') {
+                initFunction = 'initSlide03SolucaoCartao3d';
+            } else {
+                // Fallback para outros slides
+                initFunction = `init${slideName.replace(/-/g, '')}`;
+            }
             
+            console.log(`Tentando chamar função: ${initFunction}`);
             if (window[initFunction]) {
                 window[initFunction]();
+            } else {
+                console.warn(`Função ${initFunction} não encontrada para slide ${slideName}`);
             }
         }
     });
