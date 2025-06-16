@@ -1,0 +1,105 @@
+.
+├── assets
+│   ├── audio
+│   ├── data
+│   │   └── partners.json
+│   ├── images
+│   │   ├── cards
+│   │   ├── logos
+│   │   └── partners
+│   └── videos
+├── config
+│   └── reveal-config.js
+├── css
+│   ├── animations.css
+│   ├── base.css
+│   └── theme.css
+├── estrutura-pastas.txt
+├── index.html
+├── js
+│   ├── animations.js
+│   ├── loader.js
+│   └── utils.js
+├── README.md
+├── slides
+│   ├── slide-01-titulo
+│   │   ├── index.html
+│   │   ├── script.js
+│   │   └── style.css
+│   ├── slide-02-cartao-3d
+│   │   ├── index.html
+│   │   ├── script.js
+│   │   └── style.css
+│   ├── slide-03-problema
+│   │   ├── index.html
+│   │   ├── script.js
+│   │   └── style.css
+│   ├── slide-04-cartao-destaque
+│   │   ├── index.html
+│   │   ├── script.js
+│   │   └── style.css
+│   ├── slide-05-como-funciona
+│   │   ├── index.html
+│   │   ├── script.js
+│   │   └── style.css
+│   ├── slide-06-demonstracao
+│   │   ├── index.html
+│   │   ├── script.js
+│   │   └── style.css
+│   ├── slide-07-comparativo-titulo
+│   │   ├── index.html
+│   │   ├── script.js
+│   │   └── style.css
+│   ├── slide-08-tabela-comparativa
+│   │   ├── index.html
+│   │   ├── script.js
+│   │   └── style.css
+│   ├── slide-09-mapa-parceiros
+│   │   ├── index.html
+│   │   ├── script.js
+│   │   └── style.css
+│   ├── slide-10-timeline
+│   │   ├── index.html
+│   │   ├── script.js
+│   │   └── style.css
+│   ├── slide-11-parceiros-confirmados
+│   │   ├── index.html
+│   │   ├── script.js
+│   │   └── style.css
+│   ├── slide-12-especial-sindicos
+│   │   ├── index.html
+│   │   ├── script.js
+│   │   └── style.css
+│   ├── slide-13-case-sucesso
+│   │   ├── index.html
+│   │   ├── script.js
+│   │   └── style.css
+│   ├── slide-14-visao-futuro
+│   │   ├── index.html
+│   │   ├── script.js
+│   │   └── style.css
+│   ├── slide-15-depoimento-video
+│   │   ├── index.html
+│   │   ├── script.js
+│   │   └── style.css
+│   ├── slide-16-como-participar
+│   │   ├── index.html
+│   │   ├── script.js
+│   │   └── style.css
+│   ├── slide-17-beneficios-embaixadores
+│   │   ├── index.html
+│   │   ├── script.js
+│   │   └── style.css
+│   ├── slide-18-contatos-qr
+│   │   ├── index.html
+│   │   ├── script.js
+│   │   └── style.css
+│   └── slide-19-agradecimento
+│       ├── index.html
+│       ├── script.js
+│       └── style.css
+└── templates
+    ├── README.md
+    └── slide-template.html
+
+33 directories, 70 files

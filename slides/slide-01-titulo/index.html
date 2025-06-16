@@ -16,10 +16,13 @@
         <!-- Título principal -->
         <h1 class="main-title">Cartão de Benefícios</h1>
         
-        <!-- Texto digitado -->
+        <!-- Texto digitado persistente -->
         <div class="typewriter-container">
-            <span class="typewriter" id="typewriter"></span>
-            <span class="cursor"></span>
+            <div class="persistent-lines" id="persistent-lines"></div>
+            <div class="current-line">
+                <span class="typewriter" id="typewriter"></span>
+                <span class="cursor"></span>
+            </div>
         </div>
         
         <!-- Subtítulo -->
@@ -37,9 +40,6 @@
             </div>
         </div>
     </div>
-    
-    <!-- Botão CTA -->
-    <button class="cta-button">Começar Apresentação</button>
     
     <!-- Indicador de scroll -->
     <div class="scroll-indicator">

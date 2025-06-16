@@ -3,6 +3,8 @@
 // Criar partículas animadas
 function createParticles() {
     const particlesContainer = document.getElementById('particles');
+    if (!particlesContainer) return; // Guard clause
+    
     const particleCount = 50;
     
     for (let i = 0; i < particleCount; i++) {
@@ -30,10 +32,9 @@ function createParticles() {
     }
 }
 
-// Efeito de digitação
+// Efeito de digitação persistente
 function typeWriter() {
     const texts = [
-        "O futuro chegou.",
         "Economia garantida.",
         "Qualidade de vida.",
         "Comunidade unida."
@@ -41,31 +42,44 @@ function typeWriter() {
     
     let textIndex = 0;
     let charIndex = 0;
-    let isDeleting = false;
     let typeSpeed = 100;
     
     const typewriterElement = document.getElementById('typewriter');
+    const persistentLinesElement = document.getElementById('persistent-lines');
+    if (!typewriterElement || !persistentLinesElement) return; // Guard clause
     
     function type() {
         const currentText = texts[textIndex];
         
-        if (isDeleting) {
-            typewriterElement.textContent = currentText.substring(0, charIndex - 1);
-            charIndex--;
-            typeSpeed = 50;
-        } else {
-            typewriterElement.textContent = currentText.substring(0, charIndex + 1);
-            charIndex++;
-            typeSpeed = 100;
-        }
+        // Digitando a linha atual
+        typewriterElement.textContent = currentText.substring(0, charIndex + 1);
+        charIndex++;
         
-        if (!isDeleting && charIndex === currentText.length) {
-            typeSpeed = 2000; // Pausa no final
-            isDeleting = true;
-        } else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            textIndex = (textIndex + 1) % texts.length;
-            typeSpeed = 500; // Pausa antes de começar novo texto
+        if (charIndex === currentText.length) {
+            // Linha completa - mover para linhas persistentes
+            setTimeout(() => {
+                // Criar nova linha persistente
+                const newLine = document.createElement('div');
+                newLine.className = 'persistent-line';
+                newLine.textContent = currentText;
+                persistentLinesElement.appendChild(newLine);
+                
+                // Limpar linha atual apenas se não for a última
+                textIndex++;
+                if (textIndex < texts.length) {
+                    typewriterElement.textContent = '';
+                    charIndex = 0;
+                    setTimeout(() => type(), 1000); // Pausa antes da próxima linha
+                } else {
+                    // É a última linha - remover cursor e texto atual
+                    typewriterElement.textContent = '';
+                    const cursor = document.querySelector('.cursor');
+                    if (cursor) {
+                        cursor.style.display = 'none';
+                    }
+                }
+            }, 1500); // Pausa após completar a linha
+            return;
         }
         
         setTimeout(type, typeSpeed);
@@ -77,6 +91,7 @@ function typeWriter() {
 // Efeito parallax no movimento do mouse
 function initParallax() {
     const wrapper = document.querySelector('.content-wrapper');
+    if (!wrapper) return; // Guard clause
     
     document.addEventListener('mousemove', (e) => {
         const x = (e.clientX - window.innerWidth / 2) / 100;
@@ -89,6 +104,8 @@ function initParallax() {
 // Animação do botão CTA
 function initCTAButton() {
     const button = document.querySelector('.cta-button');
+    
+    if (!button) return; // Guard clause - botão não existe neste slide
     
     button.addEventListener('click', () => {
         // Efeito de ripple
@@ -133,6 +150,21 @@ function cleanupSlide01() {
     const particlesContainer = document.getElementById('particles');
     if (particlesContainer) {
         particlesContainer.innerHTML = '';
+    }
+    
+    // Limpar linhas persistentes e texto atual
+    const persistentLinesElement = document.getElementById('persistent-lines');
+    const typewriterElement = document.getElementById('typewriter');
+    const cursor = document.querySelector('.cursor');
+    
+    if (persistentLinesElement) {
+        persistentLinesElement.innerHTML = '';
+    }
+    if (typewriterElement) {
+        typewriterElement.textContent = '';
+    }
+    if (cursor) {
+        cursor.style.display = 'inline-block';
     }
 }
 
