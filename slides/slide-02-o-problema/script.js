@@ -129,8 +129,16 @@ function removeCalculatorHighlight() {
     });
 }
 
-// Função para mostrar fatos interessantes periodicamente
+// Função para mostrar fatos interessantes periodicamente - REFATORADA
 function showPeriodicFacts() {
+    // Usar o TimerManager para gerenciar os timers
+    const slideId = 'slide-02';
+    
+    // Limpar timers anteriores do slide 2 se existirem
+    if (window.Utils && window.Utils.TimerManager) {
+        window.Utils.TimerManager.clearSlide(slideId);
+    }
+    
     const facts = [
         "💡 Isso é mais que o PIB de alguns países pequenos por família!",
         "⏰ Em 10 anos, seriam R$ 288.000 gastos",
@@ -140,27 +148,33 @@ function showPeriodicFacts() {
     
     let currentFact = 0;
     
-    // Criar elemento para mostrar fatos
-    const factElement = document.createElement('div');
-    factElement.className = 'periodic-fact';
-    factElement.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: rgba(220, 38, 38, 0.9);
-        color: white;
-        padding: 1rem;
-        border-radius: 10px;
-        font-size: 0.9rem;
-        max-width: 300px;
-        opacity: 0;
-        transform: translateX(100%);
-        transition: all 0.5s ease;
-        z-index: 1000;
-        backdrop-filter: blur(10px);
-    `;
-    
     function showNextFact() {
+        // Verificar se ainda estamos no slide 2
+        const currentSlide = document.querySelector('.slide-02');
+        if (!currentSlide || !currentSlide.closest('.present')) {
+            return; // Parar se não estivermos no slide 2
+        }
+        
+        // Criar elemento para mostrar fatos
+        const factElement = document.createElement('div');
+        factElement.className = 'periodic-fact';
+        factElement.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(220, 38, 38, 0.9);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            max-width: 300px;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.5s ease;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        `;
+        
         factElement.textContent = facts[currentFact];
         document.body.appendChild(factElement);
         
@@ -185,11 +199,32 @@ function showPeriodicFacts() {
         currentFact = (currentFact + 1) % facts.length;
     }
     
-    // Mostrar primeiro fato após 8 segundos
-    setTimeout(showNextFact, 8000);
-    
-    // Depois mostrar a cada 12 segundos
-    setInterval(showNextFact, 12000);
+    // Usar TimerManager para gerenciar os timers
+    if (window.Utils && window.Utils.TimerManager) {
+        // Mostrar primeiro fato após 8 segundos
+        window.Utils.TimerManager.setTimeout(slideId, 'firstFact', showNextFact, 8000);
+        
+        // Depois mostrar a cada 12 segundos
+        window.Utils.TimerManager.setInterval(slideId, 'periodicFacts', () => {
+            // Verificar se ainda estamos no slide 2 antes de executar
+            const currentSlide = document.querySelector('.slide-02');
+            if (!currentSlide || !currentSlide.closest('.present')) {
+                // Se não estivermos no slide 2, parar
+                return;
+            }
+            showNextFact();
+        }, 12000);
+    } else {
+        // Fallback para o sistema antigo se TimerManager não estiver disponível
+        setTimeout(showNextFact, 8000);
+        setInterval(() => {
+            const currentSlide = document.querySelector('.slide-02');
+            if (!currentSlide || !currentSlide.closest('.present')) {
+                return;
+            }
+            showNextFact();
+        }, 12000);
+    }
 }
 
 // Função para adicionar efeitos sonoros (opcional)
@@ -283,9 +318,16 @@ function initSlide02OProblema() {
     console.log('✅ Slide 02 inicializado com sucesso');
 }
 
-// Função de limpeza
+// Função de limpeza - SIMPLIFICADA
 function cleanupSlide02() {
-    // Remover fatos periódicos
+    console.log('🧹 Limpando Slide 02');
+    
+    // Usar TimerManager para limpar todos os timers do slide 2
+    if (window.Utils && window.Utils.TimerManager) {
+        window.Utils.TimerManager.clearSlide('slide-02');
+    }
+    
+    // Remover fatos periódicos do DOM
     const facts = document.querySelectorAll('.periodic-fact');
     facts.forEach(fact => {
         if (fact.parentNode) {
@@ -299,6 +341,9 @@ function cleanupSlide02() {
         card.replaceWith(card.cloneNode(true));
     });
 }
+
+// Registrar função de limpeza globalmente
+window.cleanupSlide02 = cleanupSlide02;
 
 // Registrar função globalmente para o Reveal.js
 window.initSlide02OProblema = initSlide02OProblema;

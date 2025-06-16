@@ -144,8 +144,10 @@ function initCTAButton() {
     });
 }
 
-// Função para limpar as animações quando sair do slide
+// Função para limpar as animações quando sair do slide - MELHORADA
 function cleanupSlide01() {
+    console.log('🧹 Limpando Slide 01');
+    
     // Limpar event listeners se necessário
     const particlesContainer = document.getElementById('particles');
     if (particlesContainer) {
@@ -166,6 +168,9 @@ function cleanupSlide01() {
     if (cursor) {
         cursor.style.display = 'inline-block';
     }
+    
+    // Remover event listeners de parallax se existirem
+    // (não há remoção específica necessária pois não há listeners globais persistentes)
 }
 
 // Inicializar todas as animações
@@ -182,8 +187,9 @@ function initSlide01() {
     initCTAButton();
 }
 
-// Registrar função globalmente para o Reveal.js
+// Registrar funções globalmente para o Reveal.js
 window.initslide01titulo = initSlide01;
+window.cleanupSlide01 = cleanupSlide01;
 
 // Executar quando o slide for o primeiro a carregar
 if (document.querySelector('.slide-01')) {

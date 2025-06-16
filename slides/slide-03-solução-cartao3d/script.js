@@ -256,8 +256,10 @@ function createLightFlash() {
     setTimeout(() => flash.remove(), 800);
 }
 
-// Cleanup function
-function cleanupSlide02() {
+// Cleanup function - RENOMEADA E MELHORADA
+function cleanupSlide03() {
+    console.log('🧹 Limpando Slide 03');
+    
     // Limpar partículas
     const particlesContainer = document.getElementById('floatingParticles');
     if (particlesContainer) {
@@ -272,8 +274,8 @@ function cleanupSlide02() {
 function initSlide03SolucaoCartao3d() {
     console.log('🎨 Inicializando Slide 03 - Solução Cartao 3D');
     
-    // Limpar slide anterior
-    cleanupSlide02();
+    // Limpar slide atual se necessário (a limpeza do slide anterior agora é automática)
+    cleanupSlide03();
     
     // Aguardar um momento para garantir que DOM está pronto
     setTimeout(() => {
@@ -290,9 +292,12 @@ function initSlide03SolucaoCartao3d() {
             createSpecialEffects();
         }, 3000);
         
-        console.log('✨ Slide 02 carregado com sucesso!');
+        console.log('✨ Slide 03 carregado com sucesso!');
     }, 100);
 }
+
+// Registrar função de limpeza globalmente
+window.cleanupSlide03 = cleanupSlide03;
 
 // Registrar função globalmente para o Reveal.js
 window.initSlide03SolucaoCartao3d = initSlide03SolucaoCartao3d;

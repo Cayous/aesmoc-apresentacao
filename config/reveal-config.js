@@ -95,6 +95,33 @@ function initializeReveal() {
     Reveal.on('slidechanged', event => {
         console.log('Slide mudou para:', event.indexh);
         
+        // NOVO: Chamar limpeza do slide anterior se existir
+        const previousSlide = event.previousSlide;
+        if (previousSlide && previousSlide.dataset.slideName) {
+            const previousSlideName = previousSlide.dataset.slideName;
+            let cleanupFunction = '';
+            
+            // Mapear nomes de slides para suas funções de limpeza
+            if (previousSlideName === 'slide-01-titulo') {
+                cleanupFunction = 'cleanupSlide01';
+            } else if (previousSlideName === 'slide-02-o-problema') {
+                cleanupFunction = 'cleanupSlide02';
+            } else if (previousSlideName === 'slide-03-solução-cartao3d') {
+                cleanupFunction = 'cleanupSlide03';
+            } else {
+                // Fallback para outros slides
+                const slideNumber = previousSlideName.match(/slide-(\d+)/)?.[1];
+                if (slideNumber) {
+                    cleanupFunction = `cleanupSlide${slideNumber.padStart(2, '0')}`;
+                }
+            }
+            
+            if (cleanupFunction && window[cleanupFunction]) {
+                console.log(`🧹 Executando limpeza: ${cleanupFunction}`);
+                window[cleanupFunction]();
+            }
+        }
+        
         // Chamar função de inicialização do slide atual
         const slideName = event.currentSlide.dataset.slideName;
         if (slideName) {

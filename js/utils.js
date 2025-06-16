@@ -288,6 +288,78 @@ const Storage = {
     }
 };
 
+/**
+ * Gerenciador global de timers para slides
+ */
+const TimerManager = {
+    timers: new Map(),
+    
+    /**
+     * Registra um timer para um slide específico
+     */
+    register: (slideId, timerId, timer) => {
+        if (!TimerManager.timers.has(slideId)) {
+            TimerManager.timers.set(slideId, new Map());
+        }
+        TimerManager.timers.get(slideId).set(timerId, timer);
+        Utils.Logger.debug(`Timer ${timerId} registrado para slide ${slideId}`);
+    },
+    
+    /**
+     * Limpa todos os timers de um slide específico
+     */
+    clearSlide: (slideId) => {
+        const slideTimers = TimerManager.timers.get(slideId);
+        if (slideTimers) {
+            slideTimers.forEach((timer, timerId) => {
+                if (typeof timer === 'number') {
+                    // É um setInterval ou setTimeout
+                    clearInterval(timer);
+                    clearTimeout(timer);
+                } else if (timer && typeof timer.stop === 'function') {
+                    // É um objeto com método stop
+                    timer.stop();
+                }
+                Utils.Logger.debug(`Timer ${timerId} limpo do slide ${slideId}`);
+            });
+            slideTimers.clear();
+        }
+    },
+    
+    /**
+     * Limpa todos os timers de todos os slides
+     */
+    clearAll: () => {
+        TimerManager.timers.forEach((slideTimers, slideId) => {
+            TimerManager.clearSlide(slideId);
+        });
+        TimerManager.timers.clear();
+        Utils.Logger.info('Todos os timers foram limpos');
+    },
+    
+    /**
+     * Versões seguras de setTimeout e setInterval que se auto-registram
+     */
+    setTimeout: (slideId, timerId, callback, delay) => {
+        const timer = setTimeout(() => {
+            // Remover o timer do registro quando executar
+            const slideTimers = TimerManager.timers.get(slideId);
+            if (slideTimers) {
+                slideTimers.delete(timerId);
+            }
+            callback();
+        }, delay);
+        TimerManager.register(slideId, timerId, timer);
+        return timer;
+    },
+    
+    setInterval: (slideId, timerId, callback, interval) => {
+        const timer = setInterval(callback, interval);
+        TimerManager.register(slideId, timerId, timer);
+        return timer;
+    }
+};
+
 // Exportar para uso global
 window.Utils = {
     debounce,
@@ -304,7 +376,8 @@ window.Utils = {
     formatPercent,
     createElement,
     Logger,
-    Storage
+    Storage,
+    TimerManager
 };
 
 // Ativar modo debug em desenvolvimento
