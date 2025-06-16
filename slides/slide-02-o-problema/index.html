@@ -1,54 +1,94 @@
 <!-- ARQUIVO: slides/slide-02-o-problema/index.html -->
 <div class="slide-02">
-    <!-- Conte�do principal -->
+    <!-- Fundo com pattern sutil -->
+    <div class="background-pattern"></div>
+    
+    <!-- Conteúdo principal -->
     <div class="content-wrapper">
-        <!-- T�tulo -->
-        <h1 class="slide-title">O PROBLEMA</h1>
+        <!-- Título provocativo -->
+        <h1 class="main-title" id="mainTitle">
+            Quanto custa viver bem em Valparaíso?
+        </h1>
         
-        <!-- Container dos cards -->
-        <div class="cards-container">
-            <!-- Card 1: Consulta M�dica -->
-            <div class="cost-card">
-                <div class="card-icon">
-                    <i class="fas fa-stethoscope"></i>
-                </div>
-                <div class="card-label">Consulta M�dica</div>
-                <div class="card-value">R$ 300</div>
-            </div>
-            
-            <!-- Card 2: Veterin�rio -->
-            <div class="cost-card">
-                <div class="card-icon">
-                    <i class="fas fa-paw"></i>
-                </div>
-                <div class="card-label">Veterin�rio</div>
-                <div class="card-value">R$ 200</div>
-            </div>
-            
-            <!-- Card 3: Exames Laboratoriais -->
-            <div class="cost-card">
-                <div class="card-icon">
-                    <i class="fas fa-microscope"></i>
-                </div>
-                <div class="card-label">Exames Laboratoriais</div>
-                <div class="card-value">R$ 150+</div>
-            </div>
-            
-            <!-- Card 4: Farm�cia -->
-            <div class="cost-card">
-                <div class="card-icon">
-                    <i class="fas fa-pills"></i>
-                </div>
-                <div class="card-label">Farm�cia</div>
+        <!-- Contexto familiar -->
+        <div class="family-context">
+            <div class="family-icon">👨‍👩‍👧‍👦</div>
+            <span class="context-text">Gastos típicos de uma família</span>
+            <div class="context-badge">sem plano de saúde</div>
+        </div>
+        
+        <!-- Cards de gastos principais -->
+        <div class="costs-container">
+            <div class="cost-card" data-value="250">
+                <div class="card-icon">💊</div>
+                <div class="card-label">Farmácia</div>
                 <div class="card-value">R$ 250</div>
+                <div class="card-period">por mês</div>
+            </div>
+            
+            <div class="cost-card" data-value="300">
+                <div class="card-icon">🏥</div>
+                <div class="card-label">Consulta Médica</div>
+                <div class="card-value">R$ 300</div>
+                <div class="card-period">por consulta</div>
+            </div>
+            
+            <div class="cost-card" data-value="200">
+                <div class="card-icon">🐕</div>
+                <div class="card-label">Veterinário</div>
+                <div class="card-value">R$ 200</div>
+                <div class="card-period">por consulta</div>
+            </div>
+            
+            <div class="cost-card" data-value="150">
+                <div class="card-icon">🔬</div>
+                <div class="card-label">Exames</div>
+                <div class="card-value">R$ 150+</div>
+                <div class="card-period">por exame</div>
             </div>
         </div>
         
-        <!-- Box do total -->
-        <div class="total-box">
-            <div class="total-label-top">Gasto M�dio Familiar</div>
-            <div class="total-value">R$ 2.000</div>
-            <div class="total-label-bottom">por m�s</div>
+        <!-- Calculadora visual -->
+        <div class="calculator-section">
+            <div class="calculator-display">
+                <div class="calc-label">Gasto médio familiar mensal</div>
+                <div class="calc-operation" id="calcOperation">
+                    <span class="calc-number">250</span>
+                    <span class="calc-operator">+</span>
+                    <span class="calc-number">300</span>
+                    <span class="calc-operator">+</span>
+                    <span class="calc-number">200</span>
+                    <span class="calc-operator">+</span>
+                    <span class="calc-number">150</span>
+                    <span class="calc-equals">=</span>
+                </div>
+                <div class="calc-result" id="calcResult">R$ 0</div>
+            </div>
+        </div>
+        
+        <!-- Comparativo de impacto -->
+        <div class="impact-comparison">
+            <div class="comparison-item">
+                <div class="comparison-icon">📺</div>
+                <div class="comparison-text">8 assinaturas de streaming</div>
+            </div>
+            <div class="comparison-item">
+                <div class="comparison-icon">💰</div>
+                <div class="comparison-text">60% do salário mínimo</div>
+            </div>
+            <div class="comparison-item">
+                <div class="comparison-icon">🚗</div>
+                <div class="comparison-text">1 parcela de carro popular</div>
+            </div>
+        </div>
+        
+        <!-- Gráfico de impacto anual -->
+        <div class="annual-impact">
+            <div class="impact-label">Impacto anual</div>
+            <div class="impact-bar-container">
+                <div class="impact-bar" id="impactBar"></div>
+                <div class="impact-value">R$ 28.800</div>
+            </div>
         </div>
     </div>
 </div>
