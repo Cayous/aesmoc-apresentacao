@@ -1,4 +1,4 @@
-// ARQUIVO: js/loader.js - CORRIGIDO
+// ARQUIVO: js/loader.js - CORRIGIDO V2
 // Lista de slides em ordem
 const slidesList = [
     'slide-01-titulo',
@@ -21,6 +21,9 @@ const slidesList = [
     'slide-18-contatos-qr',
     'slide-19-agradecimento'
 ];
+
+// Flag para controlar a inicialização
+let revealInitialized = false;
 
 // Função para carregar CSS com Promise
 function loadCSS(href) {
@@ -66,18 +69,18 @@ async function loadHTML(slideName) {
 
 // Função para carregar um slide completo
 async function loadSlide(slideName) {
-    console.log(`Loading slide: ${slideName}`);
+    console.log(`📦 Loading slide: ${slideName}`);
     
     try {
         // 1. Carregar recursos em paralelo
         const [html, cssLoaded, jsLoaded] = await Promise.all([
             loadHTML(slideName),
             loadCSS(`slides/${slideName}/style.css`).catch(err => {
-                console.warn(`CSS not found for ${slideName}:`, err.message);
+                console.warn(`⚠️ CSS not found for ${slideName}:`, err.message);
                 return null;
             }),
             loadJS(`slides/${slideName}/script.js`).catch(err => {
-                console.warn(`JS not found for ${slideName}:`, err.message);
+                console.warn(`⚠️ JS not found for ${slideName}:`, err.message);
                 return null;
             })
         ]);
@@ -119,17 +122,29 @@ async function loadSlide(slideName) {
     }
 }
 
+// NOVA FUNÇÃO: Limpar URL de parâmetros de hash que podem causar problemas
+function clearURLHash() {
+    if (window.location.hash) {
+        console.log('🧹 Limpando hash da URL...');
+        // Usar pushState para limpar sem reload
+        window.history.pushState('', document.title, window.location.pathname + window.location.search);
+    }
+}
+
 // Função principal para carregar todos os slides
 async function loadSlides() {
     console.log('🚀 Iniciando carregamento dos slides...');
     
+    // Limpar hash da URL que pode causar navegação indesejada
+    clearURLHash();
+    
     const container = document.getElementById('slides-container');
     if (!container) {
-        console.error('Container de slides não encontrado!');
+        console.error('❌ Container de slides não encontrado!');
         return;
     }
     
-    // Mostrar loading
+    // Limpar container e mostrar loading
     container.innerHTML = '<section><div class="loading">Carregando apresentação...</div></section>';
     
     try {
@@ -148,11 +163,21 @@ async function loadSlides() {
             loadingSlide.closest('section').remove();
         }
         
-        // Aguardar mais um pouco para garantir renderização
-        await new Promise(resolve => setTimeout(resolve, 100));
+        // Aguardar renderização completa antes de inicializar Reveal
+        await new Promise(resolve => setTimeout(resolve, 300));
         
-        // Inicializar Reveal.js
-        initializeReveal();
+        // Verificar se Reveal.js está disponível
+        if (typeof Reveal === 'undefined') {
+            console.error('❌ Reveal.js não foi carregado!');
+            return;
+        }
+        
+        // Inicializar Reveal.js apenas uma vez
+        if (!revealInitialized) {
+            console.log('🎬 Inicializando Reveal.js...');
+            revealInitialized = true;
+            initializeReveal();
+        }
         
     } catch (error) {
         console.error('❌ Erro fatal no carregamento:', error);
@@ -168,9 +193,22 @@ async function loadSlides() {
     }
 }
 
+// MELHOR Event listener para aguardar DOM
+function initializeLoader() {
+    // Aguardar que todos os scripts essenciais estejam carregados
+    if (typeof initializeReveal === 'undefined') {
+        console.log('⏳ Aguardando scripts essenciais...');
+        setTimeout(initializeLoader, 100);
+        return;
+    }
+    
+    console.log('🎯 Iniciando loader...');
+    loadSlides();
+}
+
 // Event listener para aguardar DOM
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', loadSlides);
+    document.addEventListener('DOMContentLoaded', initializeLoader);
 } else {
-    loadSlides();
+    initializeLoader();
 }

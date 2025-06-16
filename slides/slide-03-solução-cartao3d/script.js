@@ -301,14 +301,3 @@ window.cleanupSlide03 = cleanupSlide03;
 
 // Registrar função globalmente para o Reveal.js
 window.initSlide03SolucaoCartao3d = initSlide03SolucaoCartao3d;
-
-// Auto-inicializar se o slide estiver presente
-if (document.querySelector('.slide-03')) {
-    const checkIfActive = setInterval(() => {
-        const slide = document.querySelector('.slide-03');
-        if (slide && (slide.closest('.present') || slide.closest('.future'))) {
-            clearInterval(checkIfActive);
-            initSlide03SolucaoCartao3d();
-        }
-    }, 100);
-}

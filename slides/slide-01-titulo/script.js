@@ -175,7 +175,7 @@ function cleanupSlide01() {
 
 // Inicializar todas as animações
 function initSlide01() {
-    console.log('Inicializando Slide 01 - Título');
+    console.log('🎬 Inicializando Slide 01 - Título');
     
     // Limpar animações anteriores
     cleanupSlide01();
@@ -191,14 +191,5 @@ function initSlide01() {
 window.initslide01titulo = initSlide01;
 window.cleanupSlide01 = cleanupSlide01;
 
-// Executar quando o slide for o primeiro a carregar
-if (document.querySelector('.slide-01')) {
-    // Verificar se é o slide ativo
-    const checkIfActive = setInterval(() => {
-        const slide = document.querySelector('.slide-01');
-        if (slide && slide.closest('.present')) {
-            clearInterval(checkIfActive);
-            initSlide01();
-        }
-    }, 100);
-}
+// REMOVIDO: Auto-execução que causava conflitos
+// O slide agora só será inicializado quando chamado pelo Reveal.js

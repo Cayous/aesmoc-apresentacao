@@ -13,11 +13,11 @@ function initializeReveal() {
         // Desabilitar centralização para ter controle total
         center: false,
         
-        // Configurações de navegação
-        hash: true,
+        // Configurações de navegação - CORRIGIDAS
+        hash: false, // DESABILITADO para evitar navegação baseada em URL
         controls: true,
         progress: true,
-        history: true,
+        history: false, // DESABILITADO para evitar problemas de histórico
         keyboard: true,
         overview: true,
         touch: true,
@@ -49,6 +49,9 @@ function initializeReveal() {
         parallaxBackgroundHorizontal: null,
         parallaxBackgroundVertical: null,
         
+        // FORÇAR INÍCIO NO PRIMEIRO SLIDE
+        navigationMode: 'default',
+        
         // Configuração de plugins
         plugins: [ RevealNotes, RevealHighlight ],
         
@@ -74,26 +77,35 @@ function initializeReveal() {
         }
     });
     
-    // Corrigir tamanho após inicialização
+    // NOVO: Garantir que sempre inicie no primeiro slide
     setTimeout(() => {
+        console.log('🔧 Forçando navegação para o primeiro slide...');
+        Reveal.slide(0, 0, 0); // Vai para slide 0, sem fragmento
         Reveal.sync();
         Reveal.layout();
-    }, 100);
+    }, 200);
     
     // Event listeners globais
     Reveal.on('ready', event => {
-        console.log('Apresentação AESMOC carregada!');
-        console.log('Pressione F para tela cheia, ESC para visão geral');
+        console.log('📋 Apresentação AESMOC carregada!');
+        console.log('🎮 Pressione F para tela cheia, ESC para visão geral');
         
-        // Inicializar animações do primeiro slide
-        const firstSlide = document.querySelector('.slide-01');
-        if (firstSlide && window.initslide01titulo) {
-            window.initslide01titulo();
-        }
+        // GARANTIR que estamos no primeiro slide
+        Reveal.slide(0, 0, 0);
+        
+        // Aguardar um momento antes de inicializar o primeiro slide
+        setTimeout(() => {
+            // Inicializar animações do primeiro slide
+            const firstSlide = document.querySelector('.slide-01');
+            if (firstSlide && window.initslide01titulo) {
+                console.log('🎬 Inicializando primeiro slide...');
+                window.initslide01titulo();
+            }
+        }, 300);
     });
     
     Reveal.on('slidechanged', event => {
-        console.log('Slide mudou para:', event.indexh);
+        console.log('📍 Slide mudou para:', event.indexh);
         
         // NOVO: Chamar limpeza do slide anterior se existir
         const previousSlide = event.previousSlide;
@@ -140,11 +152,11 @@ function initializeReveal() {
                 initFunction = `init${slideName.replace(/-/g, '')}`;
             }
             
-            console.log(`Tentando chamar função: ${initFunction}`);
+            console.log(`🎯 Tentando chamar função: ${initFunction}`);
             if (window[initFunction]) {
                 window[initFunction]();
             } else {
-                console.warn(`Função ${initFunction} não encontrada para slide ${slideName}`);
+                console.warn(`⚠️ Função ${initFunction} não encontrada para slide ${slideName}`);
             }
         }
     });

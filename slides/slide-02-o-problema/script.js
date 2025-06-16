@@ -348,16 +348,5 @@ window.cleanupSlide02 = cleanupSlide02;
 // Registrar função globalmente para o Reveal.js
 window.initSlide02OProblema = initSlide02OProblema;
 
-// Auto-executar se o slide estiver presente (para desenvolvimento)
-if (document.querySelector('.slide-02')) {
-    document.addEventListener('DOMContentLoaded', () => {
-        // Verificar se é o slide ativo
-        const checkIfActive = setInterval(() => {
-            const slide = document.querySelector('.slide-02');
-            if (slide && (slide.closest('.present') || slide.closest('.future'))) {
-                clearInterval(checkIfActive);
-                initSlide02OProblema();
-            }
-        }, 100);
-    });
-}
+// REMOVIDO: Auto-execução que causava conflitos
+// O slide agora só será inicializado quando chamado pelo Reveal.js
