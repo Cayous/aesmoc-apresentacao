@@ -1,25 +1,25 @@
 // ARQUIVO: js/loader.js - CORRIGIDO V2
 // Lista de slides em ordem
 const slidesList = [
-    'slide-01-titulo',
-    'slide-02-o-problema',
-    'slide-03-solução-cartao3d',
-    'slide-04-cartao-destaque',
-    'slide-05-como-funciona',
-    'slide-06-demonstracao',
-    'slide-07-comparativo-titulo',
-    'slide-08-tabela-comparativa',
-    'slide-09-mapa-parceiros',
-    'slide-10-timeline',
-    'slide-11-parceiros-confirmados',
-    'slide-12-especial-sindicos',
-    'slide-13-case-sucesso',
-    'slide-14-visao-futuro',
-    'slide-15-depoimento-video',
-    'slide-16-como-participar',
-    'slide-17-beneficios-embaixadores',
-    'slide-18-contatos-qr',
-    'slide-19-agradecimento'
+    'slide-01',
+    'slide-02',
+    'slide-03',
+    'slide-04',
+    'slide-05',
+    'slide-06',
+    'slide-07',
+    'slide-08',
+    'slide-09',
+    'slide-10',
+    'slide-11',
+    'slide-12',
+    'slide-13',
+    'slide-14',
+    'slide-15',
+    'slide-16',
+    'slide-17',
+    'slide-18',
+    'slide-19'
 ];
 
 // Flag para controlar a inicialização

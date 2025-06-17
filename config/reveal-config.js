@@ -97,9 +97,9 @@ function initializeReveal() {
         setTimeout(() => {
             // Inicializar animações do primeiro slide
             const firstSlide = document.querySelector('.slide-01');
-            if (firstSlide && window.initslide01titulo) {
+            if (firstSlide && window.initSlide01) {
                 console.log('🎬 Inicializando primeiro slide...');
-                window.initslide01titulo();
+                window.initSlide01();
             }
         }, 300);
     });
@@ -114,11 +114,11 @@ function initializeReveal() {
             let cleanupFunction = '';
             
             // Mapear nomes de slides para suas funções de limpeza
-            if (previousSlideName === 'slide-01-titulo') {
+            if (previousSlideName === 'slide-01') {
                 cleanupFunction = 'cleanupSlide01';
-            } else if (previousSlideName === 'slide-02-o-problema') {
+            } else if (previousSlideName === 'slide-02') {
                 cleanupFunction = 'cleanupSlide02';
-            } else if (previousSlideName === 'slide-03-solução-cartao3d') {
+            } else if (previousSlideName === 'slide-03') {
                 cleanupFunction = 'cleanupSlide03';
             } else {
                 // Fallback para outros slides
@@ -141,12 +141,12 @@ function initializeReveal() {
             // slide-01-titulo -> initSlide01
             // slide-02-o-problema -> initSlide02OProblema
             let initFunction = '';
-            if (slideName === 'slide-01-titulo') {
+            if (slideName === 'slide-01') {
                 initFunction = 'initSlide01';
-            } else if (slideName === 'slide-02-o-problema') {
-                initFunction = 'initSlide02OProblema';
-            } else if (slideName === 'slide-03-solução-cartao3d') {
-                initFunction = 'initSlide03SolucaoCartao3d';
+            } else if (slideName === 'slide-02') {
+                initFunction = 'initSlide02';
+            } else if (slideName === 'slide-03') {
+                initFunction = 'initSlide03';
             } else {
                 // Fallback para outros slides
                 initFunction = `init${slideName.replace(/-/g, '')}`;

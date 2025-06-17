@@ -1,0 +1,570 @@
+/* ARQUIVO: slides/slide-04/style.css - DARK THEME */
+
+/* Variáveis de cores AESMOC - DARK THEME */
+:root {
+    --aesmoc-verde: #0d9488;
+    --aesmoc-verde-claro: #10b981;
+    --aesmoc-escuro: #134e4a;
+    --fundo-escuro: #0f172a;
+    --fundo-card: #1e293b;
+    --fundo-card-hover: #334155;
+    --texto-principal: #000000;
+    --texto-secundario: #475569;
+    --texto-claro: #e2e8f0;
+    --borda-sutil: #334155;
+    --borda-ativa: #0d9488;
+    --destaque-laranja: #f59e0b;
+    --verde-sucesso: #22c55e;
+    --sombra-card: rgba(0, 0, 0, 0.4);
+}
+
+/* Container principal */
+.slide-04 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background: linear-gradient(135deg, var(--fundo-escuro) 0%, #1e293b 50%, var(--fundo-escuro) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    padding: 2rem;
+    margin: 0 !important;
+    max-width: none !important;
+    max-height: none !important;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Padrão de fundo sutil */
+.background-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 25px 25px, rgba(13, 148, 136, 0.1) 1px, transparent 1px),
+        radial-gradient(circle at 75px 75px, rgba(13, 148, 136, 0.05) 1px, transparent 1px);
+    background-size: 100px 100px;
+    background-position: 0 0, 50px 50px;
+    z-index: 1;
+}
+
+.slide-content {
+    max-width: 1400px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+/* Header */
+.header {
+    margin-bottom: 3rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-out 0.3s forwards;
+}
+
+.title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--texto-claro);
+    margin: 0 0 1rem 0;
+    line-height: 1.2;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--aesmoc-verde);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.subtitle-badge {
+    background: var(--destaque-laranja);
+    color: var(--texto-principal);
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+}
+
+/* Container principal do conteúdo */
+.main-container {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 4rem;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+/* Timeline Container */
+.timeline-container {
+    position: relative;
+}
+
+/* Timeline Line - Vertical e mais sutil */
+.timeline-line {
+    position: absolute;
+    top: 40px;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    background: var(--borda-sutil);
+    border-radius: 2px;
+    z-index: 1;
+}
+
+.timeline-progress {
+    width: 100%;
+    background: linear-gradient(180deg, var(--aesmoc-verde), var(--aesmoc-verde-claro), var(--verde-sucesso));
+    border-radius: 2px;
+    height: 0;
+    animation: progressFill 2s ease-out 1s forwards;
+    position: relative;
+    box-shadow: 0 0 10px rgba(13, 148, 136, 0.5);
+}
+
+/* Steps Container - Layout vertical */
+.steps-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    position: relative;
+    z-index: 2;
+    padding: 2rem 0;
+}
+
+/* Step Cards - Estilo timeline mais sutil */
+.step-card {
+    background: var(--fundo-card);
+    border: 2px solid var(--borda-sutil);
+    border-radius: 15px;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 4px 20px var(--sombra-card);
+    transition: all 0.4s ease;
+    opacity: 0;
+    transform: translateX(-30px);
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Alternar lados da timeline */
+.step-card:nth-child(odd) {
+    transform: translateX(-30px);
+    margin-left: auto;
+    margin-right: 4rem;
+}
+
+.step-card:nth-child(even) {
+    transform: translateX(30px);
+    margin-right: auto;
+    margin-left: 4rem;
+}
+
+/* Animações de entrada */
+.step-card[data-step="1"] {
+    animation: stepAppearLeft 0.6s ease-out 0.8s forwards;
+}
+
+.step-card[data-step="2"] {
+    animation: stepAppearRight 0.6s ease-out 1.1s forwards;
+}
+
+.step-card[data-step="3"] {
+    animation: stepAppearLeft 0.6s ease-out 1.4s forwards;
+}
+
+.step-card[data-step="4"] {
+    animation: stepAppearRight 0.6s ease-out 1.7s forwards;
+}
+
+.step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px var(--sombra-card);
+    background: var(--fundo-card-hover);
+    border-color: var(--borda-ativa);
+}
+
+/* Step Numbers - Centralizados na timeline */
+.step-number {
+    position: absolute;
+    top: 50%;
+    left: -25px;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--fundo-card);
+    border: 3px solid var(--borda-ativa);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--aesmoc-verde);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    z-index: 3;
+}
+
+/* Cards da direita têm números à direita */
+.step-card:nth-child(even) .step-number {
+    left: auto;
+    right: -25px;
+}
+
+/* Cores por step */
+.step-card[data-step="1"] .step-number {
+    border-color: var(--aesmoc-verde);
+    color: var(--aesmoc-verde);
+}
+
+.step-card[data-step="2"] .step-number {
+    border-color: var(--destaque-laranja);
+    color: var(--destaque-laranja);
+}
+
+.step-card[data-step="3"] .step-number {
+    border-color: var(--verde-sucesso);
+    color: var(--verde-sucesso);
+}
+
+.step-card[data-step="4"] .step-number {
+    border-color: var(--aesmoc-verde-claro);
+    color: var(--aesmoc-verde-claro);
+}
+
+/* Step Icons - Menores e mais sutis */
+.step-icon {
+    font-size: 2.5rem;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(13, 148, 136, 0.1);
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+
+.step-card[data-step="1"] .step-icon {
+    color: var(--aesmoc-verde);
+    background: rgba(13, 148, 136, 0.1);
+}
+
+.step-card[data-step="2"] .step-icon {
+    color: var(--destaque-laranja);
+    background: rgba(245, 158, 11, 0.1);
+}
+
+.step-card[data-step="3"] .step-icon {
+    color: var(--verde-sucesso);
+    background: rgba(34, 197, 94, 0.1);
+}
+
+.step-card[data-step="4"] .step-icon {
+    color: var(--aesmoc-verde-claro);
+    background: rgba(16, 185, 129, 0.1);
+}
+
+/* Step Content */
+.step-content {
+    flex: 1;
+}
+
+.step-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--texto-claro);
+    margin: 0 0 0.5rem 0;
+    line-height: 1.3;
+}
+
+.step-description {
+    font-size: 1rem;
+    color: var(--texto-secundario);
+    margin: 0 0 1rem 0;
+    line-height: 1.4;
+}
+
+/* Step Details - Mais sutis */
+.step-detail {
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.step-card[data-step="1"] .step-detail {
+    background: rgba(13, 148, 136, 0.2);
+    color: var(--aesmoc-verde);
+}
+
+.step-card[data-step="2"] .step-detail {
+    background: rgba(245, 158, 11, 0.2);
+    color: var(--destaque-laranja);
+}
+
+.step-card[data-step="3"] .step-detail {
+    background: rgba(34, 197, 94, 0.2);
+    color: var(--verde-sucesso);
+}
+
+.step-card[data-step="4"] .step-detail {
+    background: rgba(16, 185, 129, 0.2);
+    color: var(--aesmoc-verde-claro);
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+/* Badge especial */
+.step-badge {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: var(--verde-sucesso);
+    color: var(--texto-principal);
+    padding: 0.25rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    box-shadow: 0 2px 10px rgba(34, 197, 94, 0.3);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Cartão AESMOC */
+.cartao-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    opacity: 0;
+    transform: translateX(50px);
+    animation: slideInRight 0.8s ease-out 2s forwards;
+}
+
+.cartao-wrapper {
+    position: relative;
+    transform: perspective(1000px) rotateY(-10deg) rotateX(5deg);
+    transition: all 0.4s ease;
+}
+
+.cartao-wrapper:hover {
+    transform: perspective(1000px) rotateY(-5deg) rotateX(2deg) translateY(-10px);
+}
+
+.cartao-img {
+    width: 320px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.cartao-glow {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: linear-gradient(45deg, var(--aesmoc-verde), var(--aesmoc-verde-claro), var(--destaque-laranja));
+    border-radius: 25px;
+    z-index: -1;
+    opacity: 0.3;
+    filter: blur(15px);
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+/* Box Informativo */
+.info-box {
+    background: var(--fundo-card);
+    border: 2px solid var(--borda-sutil);
+    border-radius: 20px;
+    padding: 1.5rem;
+    max-width: 300px;
+    box-shadow: 0 4px 20px var(--sombra-card);
+}
+
+.info-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--aesmoc-verde);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.info-list li {
+    color: var(--texto-claro);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.info-list li::before {
+    content: "✓";
+    color: var(--verde-sucesso);
+    font-weight: bold;
+}
+
+/* Animações */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes stepAppearLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes stepAppearRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes progressFill {
+    to {
+        height: 100%;
+    }
+}
+
+@keyframes slideInRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes glowPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.5; }
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+    .main-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .cartao-container {
+        order: -1;
+    }
+    
+    .steps-container {
+        padding: 1rem 0;
+    }
+    
+    .step-card {
+        margin: 0 auto !important;
+        transform: translateX(0) !important;
+        max-width: 500px;
+    }
+    
+    .step-card:nth-child(odd),
+    .step-card:nth-child(even) {
+        margin: 0 auto !important;
+    }
+    
+    .step-number {
+        left: -25px !important;
+        right: auto !important;
+    }
+    
+    .timeline-line {
+        left: 25px;
+        transform: none;
+    }
+    
+    .title {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .slide-04 {
+        padding: 1rem;
+    }
+    
+    .title {
+        font-size: 2.5rem;
+    }
+    
+    .subtitle {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .steps-container {
+        gap: 2rem;
+    }
+    
+    .timeline-line {
+        display: none;
+    }
+    
+    .step-number {
+        position: relative !important;
+        left: auto !important;
+        right: auto !important;
+        transform: none !important;
+        margin-bottom: 1rem;
+    }
+    
+    .step-card {
+        padding: 1.5rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .cartao-img {
+        width: 250px;
+    }
+    
+    .step-icon {
+        font-size: 2rem;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .step-title {
+        font-size: 1.1rem;
+    }
+}

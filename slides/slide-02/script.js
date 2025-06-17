@@ -1,4 +1,4 @@
-// ARQUIVO: slides/slide-02-o-problema/script.js
+// ARQUIVO: slides/slide-02/script.js
 
 // Função para animar o contador da calculadora
 function animateCalculator() {
@@ -346,7 +346,7 @@ function cleanupSlide02() {
 window.cleanupSlide02 = cleanupSlide02;
 
 // Registrar função globalmente para o Reveal.js
-window.initSlide02OProblema = initSlide02OProblema;
+window.initSlide02 = initSlide02OProblema;
 
 // REMOVIDO: Auto-execução que causava conflitos
 // O slide agora só será inicializado quando chamado pelo Reveal.js

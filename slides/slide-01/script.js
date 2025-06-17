@@ -1,4 +1,4 @@
-// ARQUIVO: slides/slide-01-titulo/script.js
+// ARQUIVO: slides/slide-01/script.js
 
 // Criar partículas animadas
 function createParticles() {
@@ -188,7 +188,7 @@ function initSlide01() {
 }
 
 // Registrar funções globalmente para o Reveal.js
-window.initslide01titulo = initSlide01;
+window.initSlide01 = initSlide01;
 window.cleanupSlide01 = cleanupSlide01;
 
 // REMOVIDO: Auto-execução que causava conflitos

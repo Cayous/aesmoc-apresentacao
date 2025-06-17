@@ -1,4 +1,4 @@
-// ARQUIVO: slides/slide-02-cartao-3d/script.js
+// ARQUIVO: slides/slide-03/script.js
 
 // Criar partículas flutuantes
 function createFloatingParticles() {
@@ -300,4 +300,4 @@ function initSlide03SolucaoCartao3d() {
 window.cleanupSlide03 = cleanupSlide03;
 
 // Registrar função globalmente para o Reveal.js
-window.initSlide03SolucaoCartao3d = initSlide03SolucaoCartao3d;
+window.initSlide03 = initSlide03SolucaoCartao3d;
