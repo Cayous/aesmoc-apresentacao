@@ -70,7 +70,7 @@
 }
 
 .title {
-    font-size: 3.5rem;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
     font-weight: 700;
     color: var(--texto-claro);
     margin: 0 0 1rem 0;
@@ -79,7 +79,7 @@
 }
 
 .subtitle {
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
     font-weight: 500;
     color: var(--aesmoc-verde);
     margin: 0;
@@ -87,6 +87,7 @@
     align-items: center;
     justify-content: center;
     gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .subtitle-badge {
@@ -102,10 +103,13 @@
 /* Container principal do conteúdo */
 .main-container {
     display: grid;
-    grid-template-columns: 1fr 350px;
+    grid-template-columns: 1fr auto;
     gap: 4rem;
     align-items: center;
     margin-top: 2rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Timeline Container */
@@ -370,7 +374,7 @@
 }
 
 .cartao-img {
-    width: 320px;
+    width: clamp(250px, 25vw, 320px);
     height: auto;
     border-radius: 20px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.4);
@@ -477,10 +481,12 @@
 }
 
 /* Responsividade */
+/* Tablets grandes e desktops pequenos */
 @media (max-width: 1200px) {
     .main-container {
         grid-template-columns: 1fr;
         gap: 2rem;
+        max-width: 900px;
     }
     
     .cartao-container {
@@ -489,6 +495,7 @@
     
     .steps-container {
         padding: 1rem 0;
+        gap: 2.5rem;
     }
     
     .step-card {
@@ -511,28 +518,69 @@
         left: 25px;
         transform: none;
     }
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+    .slide-04 {
+        padding: 1.5rem;
+    }
     
-    .title {
-        font-size: 3rem;
+    .header {
+        margin-bottom: 2rem;
+    }
+    
+    .main-container {
+        gap: 1.5rem;
+        max-width: 700px;
+    }
+    
+    .steps-container {
+        gap: 2rem;
+    }
+    
+    .step-card {
+        padding: 1.25rem 1.5rem;
+        max-width: 450px;
+    }
+    
+    .step-title {
+        font-size: 1.2rem;
+    }
+    
+    .cartao-img {
+        width: clamp(220px, 30vw, 280px);
     }
 }
 
+/* Tablets pequenos */
 @media (max-width: 768px) {
     .slide-04 {
         padding: 1rem;
     }
     
-    .title {
-        font-size: 2.5rem;
+    .header {
+        margin-bottom: 1.5rem;
     }
     
     .subtitle {
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 0.75rem;
+    }
+    
+    .subtitle-badge {
+        font-size: 1rem;
+        padding: 0.4rem 0.8rem;
+    }
+    
+    .main-container {
+        gap: 1rem;
+        margin-top: 1rem;
     }
     
     .steps-container {
-        gap: 2rem;
+        gap: 1.5rem;
+        padding: 0.5rem 0;
     }
     
     .timeline-line {
@@ -545,6 +593,9 @@
         right: auto !important;
         transform: none !important;
         margin-bottom: 1rem;
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
     }
     
     .step-card {
@@ -552,10 +603,7 @@
         flex-direction: column;
         text-align: center;
         gap: 1rem;
-    }
-    
-    .cartao-img {
-        width: 250px;
+        max-width: 100%;
     }
     
     .step-icon {
@@ -566,5 +614,88 @@
     
     .step-title {
         font-size: 1.1rem;
+    }
+    
+    .step-description {
+        font-size: 0.9rem;
+    }
+    
+    .cartao-img {
+        width: clamp(200px, 50vw, 250px);
+    }
+    
+    .info-box {
+        max-width: 100%;
+        padding: 1rem;
+    }
+}
+
+/* Mobile pequeno */
+@media (max-width: 480px) {
+    .slide-04 {
+        padding: 0.75rem;
+    }
+    
+    .header {
+        margin-bottom: 1rem;
+    }
+    
+    .subtitle {
+        gap: 0.5rem;
+    }
+    
+    .subtitle-badge {
+        font-size: 0.9rem;
+        padding: 0.3rem 0.6rem;
+    }
+    
+    .steps-container {
+        gap: 1rem;
+    }
+    
+    .step-card {
+        padding: 1rem;
+        gap: 0.75rem;
+    }
+    
+    .step-number {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+    
+    .step-icon {
+        font-size: 1.5rem;
+        width: 40px;
+        height: 40px;
+    }
+    
+    .step-title {
+        font-size: 1rem;
+    }
+    
+    .step-description {
+        font-size: 0.85rem;
+    }
+    
+    .step-detail {
+        font-size: 0.9rem;
+        padding: 0.3rem 0.8rem;
+    }
+    
+    .cartao-img {
+        width: clamp(180px, 60vw, 220px);
+    }
+    
+    .info-box {
+        padding: 0.75rem;
+    }
+    
+    .info-title {
+        font-size: 1rem;
+    }
+    
+    .info-list li {
+        font-size: 0.85rem;
     }
 }
