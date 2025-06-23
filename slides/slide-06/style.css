@@ -1,4 +1,4 @@
-/* ARQUIVO: slides/slide-06-status/style.css */
+/* ARQUIVO: slides/slide-06-status/style.css - NOVO LAYOUT HORIZONTAL */
 
 /* Variáveis de cores - Status & Tech */
 :root {
@@ -28,21 +28,20 @@
     width: 100vw !important;
     height: 100vh !important;
     background: linear-gradient(135deg, var(--fundo-escuro) 0%, var(--fundo-tech) 30%, #134e4a 70%, var(--fundo-escuro) 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
+    display: grid !important;
+    grid-template-rows: auto 1fr auto !important;
+    grid-template-columns: 1fr !important;
     font-family: 'Inter', 'Segoe UI', sans-serif;
     padding: 1.5rem;
     margin: 0 !important;
     max-width: none !important;
     max-height: none !important;
     overflow: hidden;
-    position: relative;
+    z-index: 10;
 }
 
 /* Fundo tecnológico */
-.tech-background {
+.slide-06 .tech-background {
     position: absolute;
     top: 0;
     left: 0;
@@ -53,13 +52,13 @@
 }
 
 /* Linhas de circuito */
-.circuit-lines {
+.slide-06 .circuit-lines {
     position: absolute;
     width: 100%;
     height: 100%;
 }
 
-.circuit-line {
+.slide-06 .circuit-line {
     position: absolute;
     background: linear-gradient(90deg, transparent, currentColor, transparent);
     opacity: 0.3;
@@ -72,13 +71,13 @@
 }
 
 /* Partículas de progresso */
-.progress-particles {
+.slide-06 .progress-particles {
     position: absolute;
     width: 100%;
     height: 100%;
 }
 
-.progress-particle {
+.slide-06 .progress-particle {
     position: absolute;
     background: var(--tech-cyan);
     border-radius: 50%;
@@ -100,13 +99,13 @@
 }
 
 /* Fluxo de dados */
-.data-flow {
+.slide-06 .data-flow {
     position: absolute;
     width: 100%;
     height: 100%;
 }
 
-.data-stream {
+.slide-06 .data-stream {
     position: absolute;
     width: 2px;
     height: 100px;
@@ -127,115 +126,125 @@
     }
 }
 
-/* Header Section */
-.header-section {
+/* Header Section - MAIS COMPACTO */
+.slide-06 .header-section {
     position: relative;
     z-index: 10;
     text-align: center;
-    margin-bottom: 1.5rem;
+    padding: 1rem 0;
     opacity: 0;
     transform: translateY(30px);
     animation: fadeInUp 1s ease-out 0.3s forwards;
+    grid-row: 1;
 }
 
-.main-title {
-    font-size: clamp(1.8rem, 4.5vw, 3.2rem);
+.slide-06 .main-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: 800;
     margin: 0 0 0.5rem 0;
-    line-height: 1.1;
+    line-height: 1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
 }
 
-.title-word {
+.slide-06 .title-word {
     display: inline-block;
     color: var(--texto-claro);
-    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.9);
     margin: 0 0.5rem;
     opacity: 0;
     transform: translateY(20px);
     animation: wordReveal 0.8s ease-out forwards;
 }
 
-.title-word:nth-child(1) { animation-delay: 0.6s; }
-.title-word:nth-child(2) { animation-delay: 0.9s; }
+.slide-06 .title-word:nth-child(1) { animation-delay: 0.6s; }
+.slide-06 .title-word:nth-child(2) { animation-delay: 0.9s; }
 
-.title-word.highlight {
+.slide-06 .title-word.highlight {
     color: var(--status-azul);
     text-shadow: 0 0 30px rgba(59, 130, 246, 0.8);
     font-size: 110%;
 }
 
-.subtitle {
-    font-size: clamp(0.9rem, 2vw, 1.2rem);
+.slide-06 .subtitle {
+    font-size: clamp(1rem, 2.2vw, 1.4rem);
     color: var(--tech-cyan);
     font-weight: 500;
-    text-shadow: 0 0 15px rgba(6, 182, 212, 0.5);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8), 0 0 15px rgba(6, 182, 212, 0.5);
     opacity: 0;
     animation: fadeInUp 0.8s ease-out 1.2s forwards;
 }
 
-/* Container principal */
-.main-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    max-width: 1400px;
-    width: 100%;
+/* Container principal - NOVO LAYOUT HORIZONTAL EM GRID */
+.slide-06 .main-container {
+    display: grid !important;
+    grid-template-columns: 2fr 1.2fr 1fr !important;
+    grid-template-rows: 1fr 1fr !important;
+    gap: 1.5rem;
+    width: 100% !important;
+    height: 100% !important;
     position: relative;
     z-index: 10;
-    flex: 1;
-    align-items: start;
+    grid-row: 2;
+    align-items: stretch !important;
+    justify-items: stretch !important;
 }
 
-/* Seção de Status */
-.status-section {
+/* Seção de Status - OCUPA LADO ESQUERDO COMPLETO */
+.slide-06 .status-section {
+    grid-column: 1;
+    grid-row: 1 / -1;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 25px;
-    padding: 2rem;
+    padding: 1.5rem;
     box-shadow: 0 10px 40px var(--sombra-tech);
     opacity: 0;
     transform: translateX(-50px);
     animation: slideInLeft 0.8s ease-out 0.6s forwards;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden;
 }
 
-/* Progresso Geral */
-.overall-progress {
-    margin-bottom: 2rem;
+/* Progresso Geral - MAIS COMPACTO */
+.slide-06 .overall-progress {
+    margin-bottom: 1.5rem;
+    flex-shrink: 0;
 }
 
-.progress-header {
+.slide-06 .progress-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
 }
 
-.progress-title {
-    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+.slide-06 .progress-title {
+    font-size: clamp(1.3rem, 2.8vw, 1.6rem);
     font-weight: 700;
     color: var(--texto-claro);
     margin: 0;
 }
 
-.progress-percentage {
-    font-size: clamp(1.4rem, 3.2vw, 2rem);
+.slide-06 .progress-percentage {
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
     font-weight: 800;
     color: var(--status-azul);
     font-family: 'Courier New', monospace;
     text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
 }
 
-.progress-bar-container {
+.slide-06 .progress-bar-container {
     position: relative;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
-    height: 20px;
+    height: 18px;
     overflow: hidden;
     margin-bottom: 0.5rem;
 }
 
-.progress-bar {
+.slide-06 .progress-bar {
     height: 100%;
     background: linear-gradient(90deg, var(--status-verde), var(--status-azul), var(--tech-cyan));
     border-radius: 15px;
@@ -245,7 +254,7 @@
     position: relative;
 }
 
-.progress-bar::after {
+.slide-06 .progress-bar::after {
     content: '';
     position: absolute;
     top: 0;
@@ -256,7 +265,7 @@
     animation: progressShine 2s ease-in-out infinite;
 }
 
-.progress-segments {
+.slide-06 .progress-segments {
     position: absolute;
     top: 0;
     left: 0;
@@ -265,56 +274,58 @@
     display: flex;
 }
 
-.segment {
+.slide-06 .segment {
     flex: 1;
     border-right: 2px solid rgba(255, 255, 255, 0.2);
     transition: all 0.3s ease;
 }
 
-.segment:last-child {
+.slide-06 .segment:last-child {
     border-right: none;
 }
 
-.segment.completed {
+.slide-06 .segment.completed {
     background: rgba(34, 197, 94, 0.2);
 }
 
-.segment.active {
+.slide-06 .segment.active {
     background: rgba(59, 130, 246, 0.2);
     animation: segmentPulse 2s ease-in-out infinite;
 }
 
-.segment.pending {
+.slide-06 .segment.pending {
     background: rgba(100, 116, 139, 0.1);
 }
 
-.segment.animated {
+.slide-06 .segment.animated {
     animation: segmentFill 0.6s ease-out forwards;
 }
 
-.progress-labels {
+.slide-06 .progress-labels {
     display: flex;
     justify-content: space-between;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: var(--texto-secundario);
     margin-top: 0.5rem;
 }
 
-/* Lista de Status */
-.status-checklist {
+/* Lista de Status - MAIS COMPACTA */
+.slide-06 .status-checklist {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.7rem;
+    flex: 1;
+    overflow-y: auto;
 }
 
-.status-item {
+.slide-06 .status-item {
     display: flex;
     align-items: center;
     gap: 1rem;
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid var(--borda-tech);
-    border-radius: 15px;
-    padding: 1.25rem;
+    border-radius: 12px;
+    padding: 1rem;
     transition: all 0.4s ease;
     opacity: 0;
     transform: translateX(-30px);
@@ -323,7 +334,7 @@
     overflow: hidden;
 }
 
-.status-item::before {
+.slide-06 .status-item::before {
     content: '';
     position: absolute;
     top: 0;
@@ -334,196 +345,159 @@
     transition: left 0.6s ease;
 }
 
-.status-item:hover::before {
+.slide-06 .status-item:hover::before {
     left: 100%;
 }
 
-.status-item.completed {
+.slide-06 .status-item.completed {
     border-color: var(--status-verde);
 }
 
-.status-item.active {
+.slide-06 .status-item.active {
     border-color: var(--status-azul);
     box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
 }
 
-.status-item.active.pulse-active {
+.slide-06 .status-item.active.pulse-active {
     animation: activePulse 2s ease-in-out infinite;
 }
 
-.status-item.pending {
+.slide-06 .status-item.pending {
     border-color: var(--texto-secundario);
     opacity: 0.7;
 }
 
-.status-icon {
-    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+.slide-06 .status-icon {
+    font-size: clamp(1rem, 2.2vw, 1.3rem);
     flex-shrink: 0;
     filter: drop-shadow(0 0 10px currentColor);
 }
 
-.status-content {
+.slide-06 .status-content {
     flex: 1;
 }
 
-.status-title {
-    font-size: clamp(0.9rem, 2vw, 1.1rem);
+.slide-06 .status-title {
+    font-size: clamp(0.85rem, 1.8vw, 1rem);
     font-weight: 600;
     color: var(--texto-claro);
     margin-bottom: 0.25rem;
 }
 
-.status-detail {
-    font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+.slide-06 .status-detail {
+    font-size: clamp(0.7rem, 1.4vw, 0.8rem);
     color: var(--texto-secundario);
     line-height: 1.4;
 }
 
-.status-badge {
-    padding: 0.25rem 0.75rem;
-    border-radius: 12px;
-    font-size: 0.7rem;
+.slide-06 .status-badge {
+    padding: 0.2rem 0.6rem;
+    border-radius: 10px;
+    font-size: 0.65rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
-.status-badge.done {
+.slide-06 .status-badge.done {
     background: rgba(34, 197, 94, 0.2);
     color: var(--status-verde);
 }
 
-.status-badge.current {
+.slide-06 .status-badge.current {
     background: rgba(59, 130, 246, 0.2);
     color: var(--status-azul);
     animation: badgePulse 2s ease-in-out infinite;
 }
 
-.status-badge.future {
+.slide-06 .status-badge.future {
     background: rgba(100, 116, 139, 0.2);
     color: var(--texto-secundario);
 }
 
-/* Seção de Parcerias */
-.partnership-section {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    opacity: 0;
-    transform: translateX(50px);
-    animation: slideInRight 0.8s ease-out 0.9s forwards;
-}
-
-/* CTA de Parceria */
-.partnership-cta {
+/* CTA de Parceria - CANTO SUPERIOR DIREITO */
+.slide-06 .partnership-section {
+    grid-column: 2;
+    grid-row: 1;
     background: linear-gradient(135deg, var(--status-azul), var(--status-roxo));
     border-radius: 20px;
-    padding: 2rem;
+    padding: 1.5rem;
     text-align: center;
     color: white;
     box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
     transition: all 0.4s ease;
+    opacity: 0;
+    transform: translateX(50px);
+    animation: slideInRight 0.8s ease-out 0.9s forwards;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center;
+    align-items: center;
 }
 
-.cta-icon {
-    font-size: clamp(2rem, 4vw, 3rem);
-    margin-bottom: 1rem;
+.slide-06 .cta-icon {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: 0.8rem;
     animation: ctaFloat 3s ease-in-out infinite;
 }
 
-.cta-title {
-    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+.slide-06 .cta-title {
+    font-size: clamp(1.1rem, 2.2vw, 1.4rem);
     font-weight: 800;
-    margin: 0 0 1rem 0;
+    margin: 0 0 0.8rem 0;
     text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    line-height: 1.2;
 }
 
-.cta-description {
-    font-size: clamp(0.8rem, 1.8vw, 1rem);
+.slide-06 .cta-description {
+    font-size: clamp(0.8rem, 1.6vw, 0.95rem);
     margin: 0;
     opacity: 0.9;
-    line-height: 1.5;
+    line-height: 1.4;
 }
 
-/* Benefícios para Parceiros */
-.partner-benefits {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    padding: 1.5rem;
-}
-
-.benefits-title {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--texto-claro);
-    margin: 0 0 1rem 0;
-    text-align: center;
-}
-
-.benefit-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 0.75rem;
-    margin-bottom: 0.5rem;
-    border-radius: 10px;
-    transition: all 0.3s ease;
+/* Setores e Timing - LADO DIREITO */
+.slide-06 .timing-section {
+    grid-column: 3;
+    grid-row: 1 / -1;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.2rem;
     opacity: 0;
-    transform: translateX(30px);
+    transform: translateX(50px);
+    animation: slideInRight 0.8s ease-out 1.2s forwards;
 }
 
-.benefit-item:last-child {
-    margin-bottom: 0;
-}
-
-.benefit-icon {
-    font-size: 1.5rem;
-    flex-shrink: 0;
-    filter: drop-shadow(0 0 8px currentColor);
-}
-
-.benefit-title {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--texto-claro);
-    margin-bottom: 0.2rem;
-}
-
-.benefit-desc {
-    font-size: 0.8rem;
-    color: var(--texto-secundario);
-}
-
-/* Setores Procurados */
-.wanted-sectors {
+/* Setores Procurados - COMPACTO */
+.slide-06 .wanted-sectors {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 15px;
-    padding: 1.5rem;
+    padding: 1.2rem;
+    flex: 1;
 }
 
-.sectors-title {
-    font-size: 1.2rem;
+.slide-06 .sectors-title {
+    font-size: clamp(1rem, 2vw, 1.2rem);
     font-weight: 700;
     color: var(--texto-claro);
     margin: 0 0 1rem 0;
     text-align: center;
 }
 
-.sectors-grid {
+.slide-06 .sectors-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 0.75rem;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
 }
 
-.sector-tag {
+.slide-06 .sector-tag {
     background: var(--fundo-card);
     border: 1px solid var(--borda-tech);
-    border-radius: 20px;
-    padding: 0.5rem 0.75rem;
+    border-radius: 15px;
+    padding: 0.4rem 0.6rem;
     text-align: center;
-    font-size: 0.8rem;
+    font-size: clamp(0.7rem, 1.4vw, 0.8rem);
     font-weight: 600;
     color: var(--texto-claro);
     cursor: pointer;
@@ -532,47 +506,47 @@
     transform: scale(0.8);
 }
 
-.sector-tag:hover {
+.slide-06 .sector-tag:hover {
     transform: scale(1.05);
     background: var(--borda-ativa);
 }
 
-.sector-tag.priority {
+.slide-06 .sector-tag.priority {
     border-color: var(--status-laranja);
     color: var(--status-laranja);
     box-shadow: 0 0 15px rgba(245, 158, 11, 0.3);
 }
 
-/* Contador Regressivo */
-.countdown-container {
+/* Contador Regressivo - COMPACTO */
+.slide-06 .countdown-container {
     background: linear-gradient(135deg, var(--status-laranja), #d97706);
     border-radius: 15px;
-    padding: 1.5rem;
+    padding: 1.2rem;
     text-align: center;
     color: white;
     box-shadow: 0 10px 30px rgba(245, 158, 11, 0.2);
 }
 
-.countdown-title {
-    font-size: 1rem;
+.slide-06 .countdown-title {
+    font-size: clamp(0.8rem, 1.6vw, 1rem);
     font-weight: 600;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
     text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
-.countdown-display {
+.slide-06 .countdown-display {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
+    gap: 0.8rem;
 }
 
-.countdown-item {
+.slide-06 .countdown-item {
     text-align: center;
 }
 
-.countdown-number {
-    font-size: 2.5rem;
+.slide-06 .countdown-number {
+    font-size: clamp(1.8rem, 3.5vw, 2.2rem);
     font-weight: 800;
     font-family: 'Courier New', monospace;
     line-height: 1;
@@ -580,29 +554,82 @@
     transition: all 0.3s ease;
 }
 
-.countdown-label {
-    font-size: 0.8rem;
+.slide-06 .countdown-label {
+    font-size: clamp(0.7rem, 1.4vw, 0.8rem);
     font-weight: 500;
     margin-top: 0.25rem;
     opacity: 0.9;
 }
 
-.countdown-separator {
-    font-size: 2rem;
+.slide-06 .countdown-separator {
+    font-size: clamp(1.5rem, 3vw, 1.8rem);
     font-weight: 800;
     opacity: 0.7;
     animation: separatorBlink 2s ease-in-out infinite;
 }
 
-/* Banner de Ação */
-.action-banner {
-    position: absolute;
-    bottom: 1rem;
-    left: 2rem;
-    right: 2rem;
+/* Benefícios - ÁREA INFERIOR CENTRAL */
+.slide-06 .partner-benefits {
+    grid-column: 2;
+    grid-row: 2;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 1.2rem;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out 1.5s forwards;
+}
+
+.slide-06 .benefits-title {
+    font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+    font-weight: 700;
+    color: var(--texto-claro);
+    margin: 0 0 0.8rem 0;
+    text-align: center;
+}
+
+.slide-06 .benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.5rem;
+    margin-bottom: 0.4rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateX(30px);
+}
+
+.slide-06 .benefit-item:last-child {
+    margin-bottom: 0;
+}
+
+.slide-06 .benefit-icon {
+    font-size: clamp(1.2rem, 2.5vw, 1.4rem);
+    flex-shrink: 0;
+    filter: drop-shadow(0 0 8px currentColor);
+}
+
+.slide-06 .benefit-title {
+    font-size: clamp(0.8rem, 1.6vw, 0.9rem);
+    font-weight: 600;
+    color: var(--texto-claro);
+    margin-bottom: 0.1rem;
+}
+
+.slide-06 .benefit-desc {
+    font-size: clamp(0.7rem, 1.4vw, 0.8rem);
+    color: var(--texto-secundario);
+}
+
+/* Banner de Ação - RODAPÉ COMPLETO */
+.slide-06 .action-banner {
+    grid-row: 3;
+    grid-column: 1 / -1;
     background: linear-gradient(90deg, var(--aesmoc-verde), var(--aesmoc-verde-claro));
     border-radius: 20px;
-    padding: 1.5rem;
+    padding: 1.2rem;
     box-shadow: 0 10px 30px rgba(13, 148, 136, 0.2);
     z-index: 15;
     opacity: 0;
@@ -611,53 +638,53 @@
     transition: all 0.3s ease;
 }
 
-.banner-content {
+.slide-06 .banner-content {
     display: flex;
     align-items: center;
     gap: 1.5rem;
     color: white;
-    flex-wrap: wrap;
     justify-content: center;
     text-align: center;
 }
 
-.banner-icon {
-    font-size: 2.5rem;
+.slide-06 .banner-icon {
+    font-size: clamp(2rem, 4vw, 2.5rem);
     flex-shrink: 0;
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
 }
 
-.banner-text {
+.slide-06 .banner-text {
     flex: 1;
     min-width: 200px;
 }
 
-.banner-title {
-    font-size: 1.3rem;
+.slide-06 .banner-title {
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
     font-weight: 700;
     margin-bottom: 0.25rem;
     text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
-.banner-desc {
-    font-size: 0.9rem;
+.slide-06 .banner-desc {
+    font-size: clamp(0.9rem, 1.8vw, 1rem);
     opacity: 0.9;
 }
 
-.banner-contacts {
+.slide-06 .banner-contacts {
     display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    font-size: 0.9rem;
+    gap: 1.5rem;
+    font-size: clamp(0.85rem, 1.7vw, 1rem);
     font-weight: 600;
+    align-items: center;
 }
 
-.contact-item {
+.slide-06 .contact-item {
     opacity: 0.9;
+    white-space: nowrap;
 }
 
 /* Elementos Decorativos */
-.decorative-elements {
+.slide-06 .decorative-elements {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -665,64 +692,64 @@
     z-index: 2;
 }
 
-.tech-ring {
+.slide-06 .tech-ring {
     position: absolute;
     border: 2px solid rgba(59, 130, 246, 0.2);
     border-radius: 50%;
     animation: ringRotate 40s linear infinite;
 }
 
-.ring-1 {
-    width: 300px;
-    height: 300px;
+.slide-06 .ring-1 {
+    width: 250px;
+    height: 250px;
     top: 5%;
     right: 5%;
     animation-duration: 50s;
 }
 
-.ring-2 {
-    width: 200px;
-    height: 200px;
-    bottom: 20%;
-    left: 10%;
+.slide-06 .ring-2 {
+    width: 180px;
+    height: 180px;
+    bottom: 15%;
+    left: 8%;
     animation-duration: 45s;
     animation-direction: reverse;
 }
 
-.floating-icons {
+.slide-06 .floating-icons {
     position: absolute;
     width: 100%;
     height: 100%;
 }
 
-.float-icon {
+.slide-06 .float-icon {
     position: absolute;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     opacity: 0.4;
     animation: iconFloat 15s linear infinite;
 }
 
-.icon-1 {
-    top: 15%;
+.slide-06 .icon-1 {
+    top: 10%;
     left: 85%;
     animation-delay: 0s;
 }
 
-.icon-2 {
-    top: 70%;
-    left: 15%;
+.slide-06 .icon-2 {
+    top: 60%;
+    left: 10%;
     animation-delay: 3s;
 }
 
-.icon-3 {
-    top: 30%;
-    left: 90%;
+.slide-06 .icon-3 {
+    top: 25%;
+    left: 92%;
     animation-delay: 6s;
 }
 
-.icon-4 {
-    top: 80%;
-    left: 80%;
+.slide-06 .icon-4 {
+    top: 75%;
+    left: 75%;
     animation-delay: 9s;
 }
 
@@ -788,7 +815,7 @@
 
 @keyframes ctaFloat {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    50% { transform: translateY(-8px); }
 }
 
 @keyframes separatorBlink {
@@ -838,201 +865,179 @@
     }
 }
 
-/* Telas grandes com pouca altura */
-@media (max-height: 700px) {
-    .slide-06 {
-        padding: 1rem;
-    }
-    
-    .header-section {
-        margin-bottom: 1rem;
-    }
-    
-    .main-title {
-        font-size: clamp(1.5rem, 4vw, 2.8rem);
-    }
-    
-    .subtitle {
-        font-size: clamp(0.8rem, 1.8vw, 1rem);
-    }
-    
-    .main-container {
-        gap: 1.5rem;
-    }
-    
-    .status-section {
-        padding: 1.5rem;
-    }
-    
-    .progress-title {
-        font-size: clamp(1rem, 2.2vw, 1.3rem);
-    }
-    
-    .progress-percentage {
-        font-size: clamp(1.2rem, 2.8vw, 1.6rem);
-    }
-    
-    .status-title {
-        font-size: clamp(0.8rem, 1.8vw, 1rem);
-    }
-    
-    .status-detail {
-        font-size: clamp(0.65rem, 1.3vw, 0.8rem);
-    }
-    
-    .cta-title {
-        font-size: clamp(1rem, 2.2vw, 1.3rem);
-    }
-    
-    .cta-description {
-        font-size: clamp(0.75rem, 1.6vw, 0.9rem);
+/* RESPONSIVIDADE OTIMIZADA PARA NOVO LAYOUT */
+@media (max-width: 1400px) {
+    .slide-06 .main-container {
+        grid-template-columns: 1.8fr 1fr 0.8fr;
     }
 }
 
-/* Laptops pequenos */
-@media (max-width: 1024px) and (max-height: 768px) {
-    .slide-06 {
-        padding: 1.5rem 1rem;
-    }
-    
-    .main-title {
-        font-size: clamp(1.6rem, 4.2vw, 2.8rem);
-    }
-    
-    .subtitle {
-        font-size: clamp(0.85rem, 1.9vw, 1.1rem);
-    }
-    
-    .progress-title {
-        font-size: clamp(1.1rem, 2.3vw, 1.4rem);
-    }
-    
-    .progress-percentage {
-        font-size: clamp(1.3rem, 3vw, 1.7rem);
-    }
-    
-    .status-title {
-        font-size: clamp(0.85rem, 1.9vw, 1.05rem);
-    }
-    
-    .status-detail {
-        font-size: clamp(0.7rem, 1.4vw, 0.82rem);
-    }
-    
-    .cta-title {
-        font-size: clamp(1.1rem, 2.3vw, 1.4rem);
-    }
-    
-    .cta-description {
-        font-size: clamp(0.8rem, 1.7vw, 0.95rem);
-    }
-}
-
-/* Responsividade */
 @media (max-width: 1200px) {
-    .main-container {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        max-width: 900px;
+    .slide-06 .main-container {
+        grid-template-columns: 1.5fr 1fr;
+        grid-template-rows: auto auto auto;
     }
     
-    .partnership-section {
-        order: -1;
+    .slide-06 .status-section {
+        grid-column: 1;
+        grid-row: 1 / 3;
     }
     
-    .action-banner {
-        position: relative;
-        bottom: auto;
-        left: auto;
-        right: auto;
-        margin-top: 2rem;
+    .slide-06 .partnership-section {
+        grid-column: 2;
+        grid-row: 1;
+    }
+    
+    .slide-06 .timing-section {
+        grid-column: 2;
+        grid-row: 2;
+    }
+    
+    .slide-06 .partner-benefits {
+        grid-column: 1 / -1;
+        grid-row: 3;
+    }
+    
+    .slide-06 .action-banner {
+        grid-column: 1 / -1;
+        grid-row: 4;
     }
 }
 
 @media (max-width: 992px) {
     .slide-06 {
         padding: 1rem;
+        grid-template-rows: auto 1fr auto auto;
     }
     
-    .header-section {
-        margin-bottom: 1rem;
+    .slide-06 .main-container {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        gap: 1rem;
     }
     
-    .status-section,
-    .partnership-cta,
-    .partner-benefits,
-    .wanted-sectors {
-        padding: 1.5rem;
+    .slide-06 .status-section {
+        grid-column: 1 / -1;
+        grid-row: 1;
+        max-height: 60vh;
     }
     
-    .sectors-grid {
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        gap: 0.5rem;
+    .slide-06 .partnership-section {
+        grid-column: 1;
+        grid-row: 2;
     }
     
-    .countdown-display {
-        gap: 0.75rem;
+    .slide-06 .timing-section {
+        grid-column: 2;
+        grid-row: 2;
     }
     
-    .countdown-number {
-        font-size: 2rem;
+    .slide-06 .partner-benefits {
+        grid-column: 1 / -1;
+        grid-row: 3;
+    }
+    
+    .slide-06 .action-banner {
+        grid-row: 4;
+        padding: 1rem;
+    }
+    
+    .slide-06 .banner-content {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .slide-06 .banner-contacts {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
     }
 }
 
 @media (max-width: 768px) {
     .slide-06 {
-        padding: 0.75rem;
+        padding: 0.8rem;
+        grid-template-rows: auto 1fr auto;
     }
     
-    .main-container {
-        gap: 1.5rem;
+    .slide-06 .header-section {
+        padding: 0.5rem 0;
     }
     
-    .status-section {
-        padding: 1.25rem;
-    }
-    
-    .status-item {
-        padding: 1rem;
-        flex-direction: column;
-        text-align: center;
-        gap: 0.75rem;
-    }
-    
-    .status-icon {
-        font-size: 2rem;
-    }
-    
-    .partnership-cta {
-        padding: 1.5rem;
-    }
-    
-    .cta-title {
-        font-size: 1.3rem;
-    }
-    
-    .banner-content {
-        flex-direction: column;
+    .slide-06 .main-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto;
         gap: 1rem;
     }
     
-    .banner-contacts {
+    .slide-06 .status-section {
+        grid-column: 1;
+        grid-row: 1;
+        max-height: 50vh;
+        padding: 1.2rem;
+    }
+    
+    .slide-06 .partnership-section {
+        grid-column: 1;
+        grid-row: 2;
+        padding: 1.2rem;
+    }
+    
+    .slide-06 .timing-section {
+        grid-column: 1;
+        grid-row: 3;
         flex-direction: row;
         gap: 1rem;
-        justify-content: center;
-        flex-wrap: wrap;
+    }
+    
+    .slide-06 .wanted-sectors {
+        flex: 1;
+    }
+    
+    .slide-06 .countdown-container {
+        flex: 1;
+    }
+    
+    .slide-06 .partner-benefits {
+        grid-column: 1;
+        grid-row: 4;
+        padding: 1rem;
+    }
+    
+    .slide-06 .sectors-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.4rem;
+    }
+    
+    .slide-06 .benefit-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+        padding: 0.8rem;
+    }
+    
+    .slide-06 .status-item {
+        padding: 0.8rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .slide-06 .status-icon {
+        font-size: 1.5rem;
     }
     
     /* Ocultar elementos decorativos em mobile */
-    .tech-ring,
-    .floating-icons {
+    .slide-06 .tech-ring,
+    .slide-06 .floating-icons {
         display: none;
     }
     
-    .circuit-lines,
-    .progress-particles,
-    .data-flow {
-        opacity: 0.3;
+    .slide-06 .circuit-lines,
+    .slide-06 .progress-particles,
+    .slide-06 .data-flow {
+        opacity: 0.2;
     }
 }
 
@@ -1041,72 +1046,103 @@
         padding: 0.5rem;
     }
     
-    .header-section {
-        margin-bottom: 0.75rem;
+    .slide-06 .header-section {
+        padding: 0.3rem 0;
     }
     
-    .main-container {
-        gap: 1rem;
+    .slide-06 .main-container {
+        gap: 0.8rem;
     }
     
-    .status-section,
-    .partnership-cta,
-    .partner-benefits,
-    .wanted-sectors,
-    .countdown-container {
+    .slide-06 .status-section,
+    .slide-06 .partnership-section,
+    .slide-06 .partner-benefits {
         padding: 1rem;
     }
     
-    .progress-title {
-        font-size: 1.2rem;
+    .slide-06 .wanted-sectors,
+    .slide-06 .countdown-container {
+        padding: 1rem;
     }
     
-    .progress-percentage {
+    .slide-06 .timing-section {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .slide-06 .sectors-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .slide-06 .sector-tag {
+        font-size: 0.7rem;
+        padding: 0.4rem;
+    }
+    
+    .slide-06 .countdown-number {
         font-size: 1.5rem;
     }
     
-    .status-title {
-        font-size: 1rem;
-    }
-    
-    .status-detail {
-        font-size: 0.8rem;
-    }
-    
-    .cta-title {
-        font-size: 1.1rem;
-    }
-    
-    .cta-description {
-        font-size: 0.9rem;
-    }
-    
-    .sectors-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-    
-    .sector-tag {
-        font-size: 0.7rem;
-        padding: 0.4rem 0.6rem;
-    }
-    
-    .countdown-number {
-        font-size: 1.5rem;
-    }
-    
-    .countdown-label {
+    .slide-06 .countdown-label {
         font-size: 0.7rem;
     }
     
-    .banner-title {
+    .slide-06 .action-banner {
+        padding: 1rem;
+    }
+    
+    .slide-06 .banner-title {
         font-size: 1.1rem;
     }
     
-    .banner-desc {
+    .slide-06 .banner-desc {
+        font-size: 0.85rem;
+    }
+    
+    .slide-06 .contact-item {
         font-size: 0.8rem;
     }
     
-    .contact-item {
-        font-size: 0.8rem;
+    .slide-06 .banner-contacts {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+/* Ajustes especiais para telas muito largas */
+@media (min-width: 1600px) {
+    .slide-06 .main-container {
+        grid-template-columns: 2.2fr 1.3fr 1fr;
+        gap: 2rem;
+    }
+    
+    .slide-06 .status-section {
+        padding: 2rem;
+    }
+    
+    .slide-06 .partnership-section {
+        padding: 2rem;
+    }
+    
+    .slide-06 .wanted-sectors,
+    .slide-06 .countdown-container {
+        padding: 1.5rem;
+    }
+    
+    .slide-06 .partner-benefits {
+        padding: 1.5rem;
+    }
+}
+
+/* Ajustes para telas de projeção/apresentação */
+@media (min-width: 1920px) {
+    .slide-06 {
+        padding: 2rem;
+    }
+    
+    .slide-06 .main-container {
+        max-width: 1800px;
+        margin: 0 auto;
+        gap: 2.5rem;
     }
 }

@@ -28,15 +28,27 @@ html, body {
 .reveal .slides > section {
     width: 100vw !important;
     height: 100vh !important;
-    display: flex !important;
     top: 0 !important;
     margin: 0 !important;
     padding: 0 !important;
 }
 
-.reveal .slides > section > * {
+.reveal .slides > section:not(.slide-06) {
+    display: flex !important;
+}
+
+.reveal .slides > section > *:not(.slide-06) {
     width: 100%;
     height: 100%;
+}
+
+/* Correções específicas para slide-06 */
+.reveal .slides > section .slide-06 {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    position: relative !important;
 }
 
 /* Remover padding e margin padrão do Reveal */

@@ -16,10 +16,8 @@
     padding: 0 !important;
     max-width: none !important;
     max-height: none !important;
-}
-
-/* Cores do tema AESMOC */
-:root {
+    
+    /* Cores do tema AESMOC */
     --primary: #134e4a;
     --secondary: #115e59;
     --accent: #0d9488;
