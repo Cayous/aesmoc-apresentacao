@@ -1,0 +1,1147 @@
+/* ARQUIVO: slides/slide-08-proximos-passos/style.css */
+
+/* Variáveis de cores */
+:root {
+    --primary-blue: #3b82f6;
+    --primary-green: #0d9488;
+    --accent-purple: #8b5cf6;
+    --accent-orange: #f59e0b;
+    --success-green: #22c55e;
+    --text-light: #f1f5f9;
+    --text-dark: #1e293b;
+    --text-secondary: #64748b;
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --card-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    --gradient-primary: linear-gradient(135deg, #0d9488, #22c55e);
+    --gradient-secondary: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    --gradient-accent: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+/* Container principal */
+.slide-08 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 30%, #0d9488 60%, #134e4a 80%, #0f172a 100%);
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center;
+    justify-content: flex-start;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    padding: 1.5rem;
+    margin: 0 !important;
+    max-width: none !important;
+    max-height: none !important;
+    overflow: hidden;
+    z-index: 10;
+    position: relative;
+}
+
+/* Ondas animadas de fundo */
+.slide-08 .animated-waves {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.slide-08 .wave {
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(13, 148, 136, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: waveAnimation 15s ease-in-out infinite;
+}
+
+.slide-08 .wave-1 {
+    top: -10%;
+    left: -10%;
+    animation-delay: 0s;
+}
+
+.slide-08 .wave-2 {
+    bottom: -10%;
+    right: -10%;
+    animation-delay: 5s;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+}
+
+.slide-08 .wave-3 {
+    top: 30%;
+    left: 30%;
+    animation-delay: 10s;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+}
+
+@keyframes waveAnimation {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.3; }
+    50% { transform: scale(1.2) rotate(180deg); opacity: 0.6; }
+}
+
+/* Partículas de conectividade */
+.slide-08 .connection-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.slide-08 .connection-particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: var(--primary-green);
+    border-radius: 50%;
+    opacity: 0.7;
+    animation: particleConnect 8s linear infinite;
+}
+
+@keyframes particleConnect {
+    0% {
+        transform: translateX(-50px) translateY(100vh) scale(0);
+        opacity: 0;
+    }
+    10% { opacity: 0.7; transform: scale(1); }
+    90% { opacity: 0.7; }
+    100% {
+        transform: translateX(50px) translateY(-100vh) scale(0);
+        opacity: 0;
+    }
+}
+
+/* Container principal */
+.slide-08 .main-container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 1400px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* Header */
+.slide-08 .header-section {
+    text-align: center;
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: slideDown 1s ease-out 0.5s forwards;
+}
+
+.slide-08 .main-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 900;
+    margin: 0 0 1rem 0;
+    line-height: 1.1;
+}
+
+.slide-08 .title-word {
+    display: inline-block;
+    color: var(--text-light);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    margin: 0 0.5rem;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: wordReveal 0.8s ease-out forwards;
+}
+
+.slide-08 .title-word:nth-child(1) { animation-delay: 0.8s; }
+.slide-08 .title-word:nth-child(2) { animation-delay: 1.1s; }
+
+.slide-08 .title-word.highlight {
+    background: var(--gradient-secondary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 110%;
+}
+
+.slide-08 .subtitle {
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    color: var(--success-green);
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 1.4s forwards;
+}
+
+/* Grid de conteúdo */
+.slide-08 .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 2rem;
+    width: 100%;
+    flex: 1;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: slideUp 1s ease-out 1.8s forwards;
+}
+
+/* Seção de participação */
+.slide-08 .participation-section {
+    grid-column: 1;
+    grid-row: 1;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    padding: 2rem;
+    box-shadow: var(--card-shadow);
+}
+
+.slide-08 .speaker-intro {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.slide-08 .speaker-avatar {
+    font-size: 2.5rem;
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+}
+
+.slide-08 .speaker-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--accent-orange);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.slide-08 .speaker-quote {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    font-style: italic;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Steps container */
+.slide-08 .steps-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.slide-08 .step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.4s ease;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateX(-30px);
+}
+
+.slide-08 .step-item:nth-child(1) { animation: slideInLeft 0.8s ease-out 2.2s forwards; }
+.slide-08 .step-item:nth-child(2) { animation: slideInLeft 0.8s ease-out 2.5s forwards; }
+.slide-08 .step-item:nth-child(3) { animation: slideInLeft 0.8s ease-out 2.8s forwards; }
+
+.slide-08 .step-item:hover {
+    transform: translateX(10px) scale(1.02);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 15px 40px rgba(13, 148, 136, 0.3);
+}
+
+.slide-08 .step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: var(--gradient-primary);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 800;
+    border-radius: 50%;
+    box-shadow: 0 8px 25px rgba(13, 148, 136, 0.4);
+    flex-shrink: 0;
+}
+
+.slide-08 .step-content {
+    flex: 1;
+}
+
+.slide-08 .step-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+}
+
+.slide-08 .step-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.slide-08 .step-description {
+    font-size: 1rem;
+    color: var(--text-light);
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
+/* Seção de necessidades */
+.slide-08 .needs-section {
+    grid-column: 2;
+    grid-row: 1;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    padding: 2rem;
+    box-shadow: var(--card-shadow);
+}
+
+.slide-08 .needs-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.slide-08 .need-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.4s ease;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateX(30px);
+}
+
+.slide-08 .need-card:nth-child(1) { animation: slideInRight 0.8s ease-out 2.2s forwards; }
+.slide-08 .need-card:nth-child(2) { animation: slideInRight 0.8s ease-out 2.5s forwards; }
+.slide-08 .need-card:nth-child(3) { animation: slideInRight 0.8s ease-out 2.8s forwards; }
+
+.slide-08 .need-card:hover {
+    transform: translateX(-10px) scale(1.02);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 15px 40px rgba(59, 130, 246, 0.3);
+}
+
+.slide-08 .need-icon {
+    font-size: 2rem;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+    flex-shrink: 0;
+}
+
+.slide-08 .need-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 0.3rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.slide-08 .need-description {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    opacity: 0.9;
+    line-height: 1.4;
+}
+
+/* Seção de contato */
+.slide-08 .contact-section {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    background: var(--card-bg);
+    border-radius: 25px;
+    padding: 2rem;
+    box-shadow: var(--card-shadow);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.slide-08 .contact-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.slide-08 .contact-title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.slide-08 .contact-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* Grid de contato */
+.slide-08 .contact-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+/* Área do QR Code */
+.slide-08 .qr-code-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.slide-08 .qr-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide-08 .qr-glow {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: var(--gradient-primary);
+    border-radius: 20px;
+    opacity: 0.3;
+    animation: qrGlow 3s ease-in-out infinite;
+}
+
+@keyframes qrGlow {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.05); }
+}
+
+.slide-08 .qr-image {
+    width: 180px;
+    height: 180px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    background: white;
+    padding: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+.slide-08 .qr-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 3px solid transparent;
+    border-radius: 15px;
+    background: linear-gradient(45deg, var(--primary-green), var(--primary-blue)) border-box;
+    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+}
+
+.slide-08 .scan-animation {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    height: 3px;
+    background: var(--accent-orange);
+    animation: scanLine 2s ease-in-out infinite;
+    opacity: 0.8;
+}
+
+@keyframes scanLine {
+    0% { transform: translateY(0); opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { transform: translateY(160px); opacity: 0.8; }
+}
+
+.slide-08 .qr-instructions {
+    text-align: center;
+}
+
+.slide-08 .qr-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.slide-08 .qr-action {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary-green);
+}
+
+.slide-08 .qr-result {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+.slide-08 .qr-pulse-indicator {
+    width: 20px;
+    height: 20px;
+    background: var(--success-green);
+    border-radius: 50%;
+    margin: 1rem auto 0;
+    animation: pulseIndicator 2s ease-in-out infinite;
+}
+
+@keyframes pulseIndicator {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.3); opacity: 0.7; }
+}
+
+/* Informações de contato */
+.slide-08 .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.slide-08 .contact-group {
+    background: rgba(248, 250, 252, 0.8);
+    border-radius: 20px;
+    padding: 1.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.slide-08 .contact-group-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.slide-08 .primary-contacts {
+    border-left: 4px solid var(--primary-green);
+}
+
+.slide-08 .aesmoc-contacts {
+    border-left: 4px solid var(--primary-blue);
+}
+
+.slide-08 .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.slide-08 .contact-item:last-child {
+    margin-bottom: 0;
+}
+
+.slide-08 .contact-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    border-color: var(--primary-green);
+}
+
+.slide-08 .contact-item.whatsapp:hover {
+    border-color: #25d366;
+    background: rgba(37, 211, 102, 0.05);
+}
+
+.slide-08 .contact-item.email:hover,
+.slide-08 .contact-item.email-aesmoc:hover {
+    border-color: var(--primary-blue);
+    background: rgba(59, 130, 246, 0.05);
+}
+
+.slide-08 .contact-item.website:hover {
+    border-color: var(--accent-purple);
+    background: rgba(139, 92, 246, 0.05);
+}
+
+.slide-08 .contact-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.slide-08 .contact-details {
+    flex: 1;
+}
+
+.slide-08 .contact-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.2rem;
+}
+
+.slide-08 .contact-value {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.2rem;
+}
+
+.slide-08 .contact-action {
+    font-size: 0.85rem;
+    color: var(--primary-green);
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+.slide-08 .contact-arrow {
+    font-size: 1.5rem;
+    color: var(--primary-green);
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+}
+
+.slide-08 .contact-item:hover .contact-arrow {
+    transform: translateX(5px);
+}
+
+/* CTA Final */
+.slide-08 .final-cta {
+    margin-top: 2rem;
+    background: var(--gradient-accent);
+    border-radius: 20px;
+    padding: 1.5rem;
+    text-align: center;
+    color: white;
+    box-shadow: 0 15px 40px rgba(245, 158, 11, 0.3);
+}
+
+.slide-08 .cta-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.slide-08 .cta-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.slide-08 .cta-description {
+    font-size: 1rem;
+    opacity: 0.95;
+    line-height: 1.5;
+    max-width: 600px;
+}
+
+.slide-08 .cta-urgency {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+}
+
+.slide-08 .urgency-text {
+    font-size: 0.95rem;
+    font-weight: 600;
+    animation: urgencyPulse 2s ease-in-out infinite;
+}
+
+@keyframes urgencyPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+/* Elementos decorativos */
+.slide-08 .decorative-elements {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.slide-08 .floating-icon {
+    position: absolute;
+    font-size: 1.5rem;
+    opacity: 0.4;
+    animation: iconFloat 12s linear infinite;
+}
+
+.slide-08 .icon-1 {
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.slide-08 .icon-2 {
+    top: 20%;
+    right: 8%;
+    animation-delay: 2s;
+}
+
+.slide-08 .icon-3 {
+    bottom: 25%;
+    left: 8%;
+    animation-delay: 4s;
+}
+
+.slide-08 .icon-4 {
+    bottom: 15%;
+    right: 12%;
+    animation-delay: 6s;
+}
+
+.slide-08 .icon-5 {
+    top: 50%;
+    left: 3%;
+    animation-delay: 8s;
+}
+
+.slide-08 .icon-6 {
+    top: 60%;
+    right: 5%;
+    animation-delay: 10s;
+}
+
+@keyframes iconFloat {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.4;
+    }
+    50% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-25px) rotate(360deg);
+        opacity: 0.4;
+    }
+}
+
+/* Indicadores de progresso */
+.slide-08 .progress-indicators {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 15;
+}
+
+.slide-08 .progress-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.slide-08 .progress-dot.active {
+    background: var(--success-green);
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.5);
+    transform: scale(1.2);
+}
+
+/* Animações principais */
+@keyframes slideDown {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes wordReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+    .slide-08 .content-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        gap: 1.5rem;
+    }
+    
+    .slide-08 .participation-section {
+        grid-column: 1;
+        grid-row: 1;
+    }
+    
+    .slide-08 .needs-section {
+        grid-column: 1;
+        grid-row: 2;
+    }
+    
+    .slide-08 .contact-section {
+        grid-column: 1;
+        grid-row: 3;
+    }
+    
+    .slide-08 .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 992px) {
+    .slide-08 {
+        padding: 1rem;
+    }
+    
+    .slide-08 .main-container {
+        gap: 1.2rem;
+    }
+    
+    .slide-08 .participation-section,
+    .slide-08 .needs-section,
+    .slide-08 .contact-section {
+        padding: 1.5rem;
+    }
+    
+    .slide-08 .speaker-intro {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .slide-08 .step-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .slide-08 .need-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .slide-08 .main-title {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+    
+    .slide-08 .subtitle {
+        font-size: clamp(1rem, 4vw, 1.2rem);
+    }
+    
+    .slide-08 .qr-container {
+        width: 160px;
+        height: 160px;
+    }
+    
+    .slide-08 .qr-image {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .slide-08 .contact-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.8rem;
+    }
+    
+    .slide-08 .contact-arrow {
+        display: none;
+    }
+    
+    .slide-08 .steps-container {
+        gap: 1rem;
+    }
+    
+    .slide-08 .needs-grid {
+        gap: 1rem;
+    }
+    
+    /* Ocultar elementos decorativos em mobile */
+    .slide-08 .floating-icon {
+        display: none;
+    }
+    
+    .slide-08 .animated-waves {
+        opacity: 0.5;
+    }
+}
+
+@media (max-width: 480px) {
+    .slide-08 {
+        padding: 0.5rem;
+    }
+    
+    .slide-08 .participation-section,
+    .slide-08 .needs-section,
+    .slide-08 .contact-section {
+        padding: 1.2rem;
+    }
+    
+    .slide-08 .step-title {
+        font-size: 1.1rem;
+    }
+    
+    .slide-08 .step-description {
+        font-size: 0.9rem;
+    }
+    
+    .slide-08 .need-title {
+        font-size: 1rem;
+    }
+    
+    .slide-08 .need-description {
+        font-size: 0.85rem;
+    }
+    
+    .slide-08 .contact-title {
+        font-size: 1.6rem;
+    }
+    
+    .slide-08 .contact-subtitle {
+        font-size: 1rem;
+    }
+    
+    .slide-08 .contact-value {
+        font-size: 1rem;
+    }
+    
+    .slide-08 .cta-title {
+        font-size: 1.3rem;
+    }
+    
+    .slide-08 .cta-description {
+        font-size: 0.9rem;
+    }
+    
+    .slide-08 .qr-container {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .slide-08 .qr-image {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+/* Telas muito altas */
+@media (min-height: 900px) {
+    .slide-08 .main-container {
+        gap: 2rem;
+    }
+    
+    .slide-08 .content-grid {
+        gap: 2.5rem;
+    }
+}
+
+/* Modo paisagem em mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+    .slide-08 .main-container {
+        gap: 1rem;
+    }
+    
+    .slide-08 .header-section {
+        margin-bottom: 0.5rem;
+    }
+    
+    .slide-08 .main-title {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .slide-08 .subtitle {
+        font-size: 1rem;
+    }
+    
+    .slide-08 .content-grid {
+        gap: 1rem;
+    }
+    
+    .slide-08 .participation-section,
+    .slide-08 .needs-section,
+    .slide-08 .next-slide-cta {
+        padding: 1rem;
+    }
+    
+    .slide-08 .steps-container {
+        gap: 0.8rem;
+    }
+    
+    .slide-08 .step-item {
+        padding: 1rem;
+    }
+    
+    .slide-08 .need-card {
+        padding: 1rem;
+    }
+}
+
+/* CTA para próximo slide */
+.slide-08 .next-slide-cta {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    background: var(--card-bg);
+    border-radius: 25px;
+    padding: 2.5rem;
+    box-shadow: var(--card-shadow);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideUp 1s ease-out 3.5s forwards;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide-08 .cta-container {
+    text-align: center;
+    max-width: 500px;
+}
+
+.slide-08 .cta-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 8px 20px rgba(13, 148, 136, 0.4));
+    animation: ctaIconFloat 3s ease-in-out infinite;
+}
+
+@keyframes ctaIconFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+.slide-08 .cta-title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--text-dark);
+    margin: 0 0 1rem 0;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.2;
+}
+
+.slide-08 .cta-description {
+    font-size: 1.3rem;
+    color: var(--text-secondary);
+    margin: 0 0 2rem 0;
+    line-height: 1.4;
+}
+
+.slide-08 .cta-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    background: var(--gradient-primary);
+    color: white;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 8px 25px rgba(13, 148, 136, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.slide-08 .cta-arrow:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 35px rgba(13, 148, 136, 0.4);
+}
+
+.slide-08 .arrow-icon {
+    font-size: 1.3rem;
+    transition: transform 0.3s ease;
+}
+
+.slide-08 .cta-arrow:hover .arrow-icon {
+    transform: translateX(5px);
+}
+
+/* Responsividade para novo CTA */
+@media (max-width: 768px) {
+    .slide-08 .cta-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .slide-08 .cta-title {
+        font-size: 2rem;
+    }
+    
+    .slide-08 .cta-description {
+        font-size: 1.1rem;
+    }
+    
+    .slide-08 .cta-arrow {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .slide-08 .next-slide-cta {
+        padding: 1.5rem;
+    }
+    
+    .slide-08 .cta-title {
+        font-size: 1.8rem;
+    }
+    
+    .slide-08 .cta-description {
+        font-size: 1rem;
+    }
+}

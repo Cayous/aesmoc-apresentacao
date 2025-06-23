@@ -1,0 +1,982 @@
+/* ARQUIVO: slides/slide-09-encerramento/style.css */
+
+/* Variáveis de cores - Consistente com outros slides */
+:root {
+    --primary-green: #0d9488;
+    --primary-blue: #3b82f6;
+    --accent-orange: #f59e0b;
+    --accent-purple: #8b5cf6;
+    --success-green: #22c55e;
+    --text-light: #f1f5f9;
+    --text-dark: #1e293b;
+    --text-secondary: #64748b;
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --fundo-escuro: #0f172a;
+    --fundo-tech: #1e293b;
+    --sombra-tech: rgba(0, 0, 0, 0.4);
+    --gradient-primary: linear-gradient(135deg, #0d9488, #22c55e);
+    --gradient-secondary: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    --gradient-accent: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+/* Container principal */
+.slide-09 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background: linear-gradient(135deg, var(--fundo-escuro) 0%, var(--fundo-tech) 30%, #134e4a 70%, var(--fundo-escuro) 100%);
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    padding: 2rem;
+    margin: 0 !important;
+    max-width: none !important;
+    max-height: none !important;
+    overflow: hidden;
+    z-index: 10;
+    position: relative;
+}
+
+/* Fundo tecnológico - Consistente com outros slides */
+.slide-09 .tech-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Linhas de circuito */
+.slide-09 .circuit-lines {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.slide-09 .circuit-line {
+    position: absolute;
+    background: linear-gradient(90deg, transparent, currentColor, transparent);
+    opacity: 0.3;
+    animation: circuitPulse 4s ease-in-out infinite;
+}
+
+@keyframes circuitPulse {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 0.6; }
+}
+
+/* Partículas de progresso */
+.slide-09 .progress-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.slide-09 .progress-particle {
+    position: absolute;
+    background: var(--primary-green);
+    border-radius: 50%;
+    box-shadow: 0 0 10px currentColor;
+    animation: particleFloat 4s linear infinite;
+}
+
+@keyframes particleFloat {
+    0% { 
+        transform: translateY(100vh) scale(0); 
+        opacity: 0; 
+    }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { 
+        transform: translateY(-100vh) scale(1); 
+        opacity: 0; 
+    }
+}
+
+/* Fluxo de dados */
+.slide-09 .data-flow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.slide-09 .data-stream {
+    position: absolute;
+    width: 2px;
+    height: 100px;
+    background: linear-gradient(180deg, transparent, var(--primary-blue), transparent);
+    animation: dataFlow 5s linear infinite;
+}
+
+@keyframes dataFlow {
+    0% { 
+        left: -10px; 
+        opacity: 0; 
+    }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { 
+        left: calc(100% + 10px); 
+        opacity: 0; 
+    }
+}
+
+/* Overlay gradiente */
+.slide-09 .gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(13, 148, 136, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 40% 60%, rgba(245, 158, 11, 0.15) 0%, transparent 50%);
+    animation: backgroundPulse 8s ease-in-out infinite;
+}
+
+@keyframes backgroundPulse {
+    0%, 100% { opacity: 0.8; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.02); }
+}
+
+/* Container principal */
+.slide-09 .main-container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 1400px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* Header de encerramento */
+.slide-09 .closing-header {
+    text-align: center;
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: slideDown 1s ease-out 0.5s forwards;
+}
+
+.slide-09 .speaker-intro {
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.8s forwards;
+}
+
+.slide-09 .speakers-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.slide-09 .speaker-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.slide-09 .speaker-avatar {
+    font-size: 3rem;
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+    animation: avatarFloat 3s ease-in-out infinite;
+}
+
+@keyframes avatarFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.slide-09 .speaker-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--accent-orange);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.slide-09 .speaker-connector {
+    font-size: 2rem;
+    color: var(--text-light);
+    font-weight: 800;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.slide-09 .speaker-quote {
+    font-size: 1.3rem;
+    color: var(--text-light);
+    font-style: italic;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.4;
+}
+
+/* Título principal - Corrigindo borramento */
+.slide-09 .main-title {
+    font-size: clamp(3rem, 8vw, 5rem);
+    font-weight: 900;
+    margin: 0 0 1rem 0;
+    line-height: 1.1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.slide-09 .title-word {
+    display: inline-block;
+    color: var(--text-light);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
+    margin: 0 0.5rem;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: wordReveal 0.8s ease-out forwards;
+    filter: none;
+    backdrop-filter: none;
+}
+
+.slide-09 .title-word:nth-child(1) { animation-delay: 1.2s; }
+.slide-09 .title-word:nth-child(2) { animation-delay: 1.5s; }
+
+.slide-09 .title-word.highlight {
+    color: var(--accent-orange);
+    text-shadow: 0 0 30px rgba(245, 158, 11, 0.8), 2px 2px 8px rgba(0, 0, 0, 0.9);
+    font-size: 110%;
+}
+
+.slide-09 .subtitle {
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    color: var(--success-green);
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8), 0 0 15px rgba(34, 197, 94, 0.5);
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 1.8s forwards;
+}
+
+/* Seção de contato */
+.slide-09 .contact-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: slideUp 1s ease-out 2.2s forwards;
+}
+
+/* QR Code hero */
+.slide-09 .qr-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.slide-09 .qr-container {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 25px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+.slide-09 .qr-glow-animation {
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    background: linear-gradient(45deg, var(--primary-green), var(--primary-blue), var(--accent-orange), var(--primary-green));
+    border-radius: 35px;
+    z-index: -1;
+    animation: qrGlow 3s linear infinite;
+    background-size: 300% 300%;
+}
+
+@keyframes qrGlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.slide-09 .qr-image {
+    width: 180px;
+    height: 180px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    background: white;
+    padding: 10px;
+}
+
+.slide-09 .qr-image:hover {
+    transform: scale(1.05);
+}
+
+.slide-09 .qr-scan-overlay {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    pointer-events: none;
+    border-radius: 15px;
+}
+
+.slide-09 .scan-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--accent-orange);
+    opacity: 0.8;
+    animation: scanAnimation 2s ease-in-out infinite;
+    border-radius: 2px;
+}
+
+@keyframes scanAnimation {
+    0% { transform: translateY(0); opacity: 1; }
+    50% { opacity: 0.6; }
+    100% { transform: translateY(160px); opacity: 1; }
+}
+
+/* Instruções do QR */
+.slide-09 .qr-instructions {
+    text-align: center;
+}
+
+.slide-09 .qr-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-light);
+    margin: 0 0 0.5rem 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.slide-09 .qr-description {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin: 0;
+    opacity: 0.9;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Grid de contatos */
+.slide-09 .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+}
+
+/* Cards de contato */
+.slide-09 .contact-card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.4s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.slide-09 .contact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.slide-09 .contact-card:hover::before {
+    left: 100%;
+}
+
+.slide-09 .contact-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+}
+
+.slide-09 .contact-card.primary-contact {
+    background: linear-gradient(135deg, rgba(13, 148, 136, 0.2), rgba(255, 255, 255, 0.95));
+    border: 2px solid var(--primary-green);
+    box-shadow: 0 15px 40px rgba(13, 148, 136, 0.3);
+}
+
+.slide-09 .contact-icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+}
+
+.slide-09 .contact-content {
+    flex: 1;
+}
+
+.slide-09 .contact-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0 0 0.3rem 0;
+}
+
+.slide-09 .contact-number,
+.slide-09 .contact-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary-green);
+    margin: 0 0 0.3rem 0;
+}
+
+.slide-09 .contact-action {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* Pulso para contato principal */
+.slide-09 .contact-pulse {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    width: 12px;
+    height: 12px;
+    background: var(--primary-green);
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+.slide-09 .contact-pulse::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-green);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulseRing 2s ease-out infinite;
+}
+
+@keyframes pulseRing {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(3); opacity: 0; }
+}
+
+/* Mensagem final */
+.slide-09 .final-message {
+    width: 100%;
+    max-width: 800px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out 3.5s forwards;
+}
+
+.slide-09 .message-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.slide-09 .message-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+}
+
+.slide-09 .message-title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text-light);
+    margin: 0 0 1rem 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.slide-09 .message-text {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    margin: 0 0 1.5rem 0;
+    line-height: 1.6;
+    opacity: 0.95;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.slide-09 .urgency-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    background: var(--gradient-accent);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 700;
+    box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+    animation: urgencyPulse 2s ease-in-out infinite;
+}
+
+@keyframes urgencyPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+.slide-09 .urgency-icon {
+    font-size: 1.2rem;
+}
+
+/* Elementos flutuantes */
+.slide-09 .floating-elements {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.slide-09 .float-element {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.6;
+    animation: elementFloat 15s linear infinite;
+}
+
+.slide-09 .element-1 {
+    top: 10%;
+    left: 8%;
+    animation-delay: 0s;
+}
+
+.slide-09 .element-2 {
+    top: 20%;
+    right: 10%;
+    animation-delay: 2.5s;
+}
+
+.slide-09 .element-3 {
+    bottom: 25%;
+    left: 12%;
+    animation-delay: 5s;
+}
+
+.slide-09 .element-4 {
+    bottom: 15%;
+    right: 8%;
+    animation-delay: 7.5s;
+}
+
+.slide-09 .element-5 {
+    top: 50%;
+    left: 5%;
+    animation-delay: 10s;
+}
+
+.slide-09 .element-6 {
+    top: 60%;
+    right: 5%;
+    animation-delay: 12.5s;
+}
+
+@keyframes elementFloat {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-40px) rotate(360deg);
+        opacity: 0.6;
+    }
+}
+
+/* Logo de encerramento */
+.slide-09 .closing-logo {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    z-index: 15;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 4s forwards;
+}
+
+.slide-09 .logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.slide-09 .logo-text {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--text-light);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.slide-09 .logo-tagline {
+    font-size: 0.8rem;
+    color: var(--accent-orange);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Animações principais */
+@keyframes slideDown {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes wordReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+    .slide-09 .contact-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.2rem;
+    }
+    
+    .slide-09 .qr-container {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .slide-09 .qr-image {
+        width: 160px;
+        height: 160px;
+    }
+}
+
+@media (max-width: 992px) {
+    .slide-09 {
+        padding: 1.5rem;
+    }
+    
+    .slide-09 .main-container {
+        gap: 1.5rem;
+    }
+    
+    .slide-09 .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .slide-09 .speakers-group {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .slide-09 .speaker-connector {
+        display: none;
+    }
+    
+    .slide-09 .speaker-quote {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .slide-09 .main-title {
+        font-size: clamp(2.5rem, 10vw, 4rem);
+    }
+    
+    .slide-09 .subtitle {
+        font-size: clamp(1rem, 4vw, 1.4rem);
+    }
+    
+    .slide-09 .qr-container {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .slide-09 .qr-image {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .slide-09 .contact-card {
+        padding: 1.5rem;
+    }
+    
+    .slide-09 .message-container {
+        padding: 1.5rem;
+    }
+    
+    .slide-09 .message-title {
+        font-size: 1.6rem;
+    }
+    
+    .slide-09 .message-text {
+        font-size: 1rem;
+    }
+    
+    /* Ocultar elementos decorativos em mobile */
+    .slide-09 .floating-elements {
+        display: none;
+    }
+    
+    .slide-09 .circuit-lines,
+    .slide-09 .progress-particles,
+    .slide-09 .data-flow {
+        opacity: 0.3;
+    }
+}
+
+@media (max-width: 480px) {
+    .slide-09 {
+        padding: 1rem;
+    }
+    
+    .slide-09 .contact-card {
+        padding: 1.2rem;
+        gap: 1rem;
+    }
+    
+    .slide-09 .contact-icon {
+        font-size: 2rem;
+    }
+    
+    .slide-09 .contact-title {
+        font-size: 1.1rem;
+    }
+    
+    .slide-09 .contact-number,
+    .slide-09 .contact-value {
+        font-size: 1rem;
+    }
+    
+    .slide-09 .message-container {
+        padding: 1.2rem;
+    }
+    
+    .slide-09 .urgency-banner {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .slide-09 .qr-container {
+        width: 160px;
+        height: 160px;
+    }
+    
+    .slide-09 .qr-image {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .slide-09 .speaker-avatar {
+        font-size: 2.5rem;
+    }
+    
+    .slide-09 .speaker-quote {
+        font-size: 1rem;
+    }
+}
+
+/* Ajustes para modo paisagem em mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+    .slide-09 .main-container {
+        gap: 1rem;
+    }
+    
+    .slide-09 .closing-header {
+        margin-bottom: 0.5rem;
+    }
+    
+    .slide-09 .main-title {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .slide-09 .qr-hero {
+        gap: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .slide-09 .qr-container {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .slide-09 .qr-image {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .slide-09 .contact-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .slide-09 .contact-card {
+        padding: 1rem;
+    }
+    
+    .slide-09 .floating-elements {
+        display: none;
+    }
+    
+    .slide-09 .speaker-intro {
+        margin-bottom: 1rem;
+    }
+    
+    .slide-09 .speaker-quote {
+        font-size: 0.9rem;
+    }
+}
+
+/* Ajustes para telas de alta densidade (Retina) */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .slide-09 .contact-card {
+        border: 0.5px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .slide-09 .progress-particle {
+        width: 2px;
+        height: 2px;
+    }
+    
+    .slide-09 .circuit-line {
+        height: 1px;
+    }
+}
+
+/* Tema escuro automático */
+@media (prefers-color-scheme: dark) {
+    .slide-09 .contact-card {
+        background: rgba(30, 41, 59, 0.95);
+        color: var(--text-light);
+    }
+    
+    .slide-09 .contact-title {
+        color: var(--text-light);
+    }
+}
+
+/* Animações para usuários que preferem movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+    .slide-09 * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .slide-09 .floating-elements,
+    .slide-09 .tech-background {
+        display: none;
+    }
+}
+
+/* Ajustes especiais para telas muito grandes */
+@media (min-width: 1600px) {
+    .slide-09 .main-container {
+        max-width: 1600px;
+        gap: 2.5rem;
+    }
+    
+    .slide-09 .qr-container {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .slide-09 .qr-image {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .slide-09 .contact-grid {
+        gap: 2rem;
+    }
+    
+    .slide-09 .contact-card {
+        padding: 2rem;
+    }
+}
+
+/* Impressão */
+@media print {
+    .slide-09 {
+        background: white !important;
+        color: black !important;
+    }
+    
+    .slide-09 .tech-background,
+    .slide-09 .floating-elements {
+        display: none !important;
+    }
+    
+    .slide-09 .contact-card {
+        background: white !important;
+        border: 2px solid #ccc !important;
+        box-shadow: none !important;
+        page-break-inside: avoid;
+    }
+    
+    .slide-09 .main-title,
+    .slide-09 .contact-title {
+        color: black !important;
+    }
+    
+    .slide-09 .qr-container {
+        border: 2px solid #ccc !important;
+        box-shadow: none !important;
+    }
+}
