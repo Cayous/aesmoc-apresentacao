@@ -18,7 +18,7 @@
     --sombra-card: rgba(0, 0, 0, 0.4);
 }
 
-/* Container principal */
+/* Container principal - FORÇAR LAYOUT VERTICAL */
 .slide-04 {
     position: absolute !important;
     top: 0 !important;
@@ -26,16 +26,14 @@
     width: 100vw !important;
     height: 100vh !important;
     background: linear-gradient(135deg, var(--fundo-escuro) 0%, #1e293b 50%, var(--fundo-escuro) 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block !important;
     font-family: 'Inter', 'Segoe UI', sans-serif;
-    padding: 2rem;
+    padding: 0.5rem;
     margin: 0 !important;
     max-width: none !important;
     max-height: none !important;
-    overflow: hidden;
-    position: relative;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
 }
 
 /* Padrão de fundo sutil */
@@ -53,149 +51,152 @@
     z-index: 1;
 }
 
+/* Estrutura do slide-content - LAYOUT FORÇADO */
 .slide-content {
-    max-width: 1400px;
-    width: 100%;
+    width: 100% !important;
+    height: auto !important;
     text-align: center;
     position: relative;
     z-index: 2;
+    display: block !important;
+    padding: 0.5rem;
+    box-sizing: border-box;
 }
 
 /* Header */
 .header {
-    margin-bottom: 3rem;
+    margin-bottom: 0.3rem;
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 0.8s ease-out 0.3s forwards;
 }
 
 .title {
-    font-size: clamp(1.8rem, 4.5vw, 3.2rem);
+    font-size: clamp(0.8rem, 1.8vw, 1.2rem);
     font-weight: 700;
     color: var(--texto-claro);
-    margin: 0 0 1rem 0;
-    line-height: 1.2;
+    margin: 0 0 0.2rem 0;
+    line-height: 1.1;
     text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
 .subtitle {
-    font-size: clamp(0.9rem, 2.2vw, 1.3rem);
+    font-size: clamp(0.5rem, 1.1vw, 0.7rem);
     font-weight: 500;
     color: var(--aesmoc-verde);
     margin: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
+    gap: 0.25rem;
     flex-wrap: wrap;
 }
 
 .subtitle-badge {
     background: var(--destaque-laranja);
     color: var(--texto-principal);
-    padding: 0.5rem 1rem;
-    border-radius: 25px;
-    font-size: 1.2rem;
+    padding: 0.15rem 0.3rem;
+    border-radius: 10px;
+    font-size: clamp(0.5rem, 1vw, 0.65rem);
     font-weight: 700;
     box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
 }
 
-/* Container principal do conteúdo */
+/* Container principal - LAYOUT SEQUENCIAL FORÇADO */
 .main-container {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 4rem;
-    align-items: center;
-    margin-top: 2rem;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Timeline Container */
-.timeline-container {
-    position: relative;
-}
-
-/* Timeline Line - Vertical e mais sutil */
-.timeline-line {
-    position: absolute;
-    top: 40px;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 4px;
-    background: var(--borda-sutil);
-    border-radius: 2px;
-    z-index: 1;
-}
-
-.timeline-progress {
-    width: 100%;
-    background: linear-gradient(180deg, var(--aesmoc-verde), var(--aesmoc-verde-claro), var(--verde-sucesso));
-    border-radius: 2px;
-    height: 0;
-    animation: progressFill 2s ease-out 1s forwards;
-    position: relative;
-    box-shadow: 0 0 10px rgba(13, 148, 136, 0.5);
-}
-
-/* Steps Container - Layout vertical */
-.steps-container {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    position: relative;
-    z-index: 2;
-    padding: 2rem 0;
-}
-
-/* Step Cards - Estilo timeline mais sutil */
-.step-card {
-    background: var(--fundo-card);
-    border: 2px solid var(--borda-sutil);
-    border-radius: 15px;
-    padding: 1.5rem 2rem;
-    box-shadow: 0 4px 20px var(--sombra-card);
-    transition: all 0.4s ease;
-    opacity: 0;
-    transform: translateX(-30px);
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    max-width: 600px;
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
     margin: 0 auto;
 }
 
-/* Alternar lados da timeline */
-.step-card:nth-child(odd) {
-    transform: translateX(-30px);
-    margin-left: auto;
-    margin-right: 4rem;
+/* Timeline Container - BLOCO SUPERIOR */
+.timeline-container {
+    position: relative;
+    width: 100%;
+    display: block !important;
+    margin-bottom: 0.5rem;
+    clear: both;
 }
 
-.step-card:nth-child(even) {
-    transform: translateX(30px);
-    margin-right: auto;
-    margin-left: 4rem;
+/* Timeline Line - Horizontal - CORRIGIDA */
+.timeline-line {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    right: 1rem;
+    transform: translateY(-50%);
+    height: 6px;
+    background: var(--borda-sutil);
+    border-radius: 3px;
+    z-index: 1;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.timeline-progress {
+    height: 100%;
+    background: linear-gradient(90deg, var(--aesmoc-verde), var(--aesmoc-verde-claro), var(--verde-sucesso));
+    border-radius: 3px;
+    width: 0;
+    animation: progressFill 2s ease-out 1s forwards;
+    position: relative;
+    box-shadow: 0 0 15px rgba(13, 148, 136, 0.6);
+}
+
+/* Steps Container - CORRIGIDO */
+.steps-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    position: relative;
+    z-index: 2;
+    padding: 0.8rem 0.4rem;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Step Cards - Layout vertical compacto */
+.step-card {
+    background: var(--fundo-card);
+    border: 1px solid var(--borda-sutil);
+    border-radius: 8px;
+    padding: 0.5rem 0.3rem;
+    box-shadow: 0 2px 8px var(--sombra-card);
+    transition: all 0.4s ease;
+    opacity: 0;
+    transform: translateY(-30px);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    text-align: center;
+    height: auto;
+    min-height: 75px;
+}
+
+/* Animações de entrada horizontais */
+.step-card {
+    transform: translateY(-30px);
 }
 
 /* Animações de entrada */
 .step-card[data-step="1"] {
-    animation: stepAppearLeft 0.6s ease-out 0.8s forwards;
+    animation: stepAppearUp 0.6s ease-out 0.8s forwards;
 }
 
 .step-card[data-step="2"] {
-    animation: stepAppearRight 0.6s ease-out 1.1s forwards;
+    animation: stepAppearUp 0.6s ease-out 1.1s forwards;
 }
 
 .step-card[data-step="3"] {
-    animation: stepAppearLeft 0.6s ease-out 1.4s forwards;
+    animation: stepAppearUp 0.6s ease-out 1.4s forwards;
 }
 
 .step-card[data-step="4"] {
-    animation: stepAppearRight 0.6s ease-out 1.7s forwards;
+    animation: stepAppearUp 0.6s ease-out 1.7s forwards;
 }
 
 .step-card:hover {
@@ -205,31 +206,32 @@
     border-color: var(--borda-ativa);
 }
 
-/* Step Numbers - Centralizados na timeline */
+/* Step Numbers - Na timeline horizontal */
 .step-number {
     position: absolute;
-    top: 50%;
-    left: -25px;
-    transform: translateY(-50%);
-    width: 50px;
-    height: 50px;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
     background: var(--fundo-card);
-    border: 3px solid var(--borda-ativa);
+    border: 2px solid var(--borda-ativa);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: clamp(0.6rem, 0.9vw, 0.75rem);
     font-weight: 800;
     color: var(--aesmoc-verde);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
     z-index: 3;
 }
 
-/* Cards da direita têm números à direita */
-.step-card:nth-child(even) .step-number {
-    left: auto;
-    right: -25px;
+/* Todos os números ficam centralizados no topo */
+.step-card .step-number {
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 /* Cores por step */
@@ -253,17 +255,18 @@
     color: var(--aesmoc-verde-claro);
 }
 
-/* Step Icons - Menores e mais sutis */
+/* Step Icons - Compactos */
 .step-icon {
-    font-size: 2.5rem;
-    width: 60px;
-    height: 60px;
+    font-size: clamp(0.9rem, 1.4vw, 1.1rem);
+    width: 28px;
+    height: 28px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: rgba(13, 148, 136, 0.1);
-    border-radius: 12px;
+    border-radius: 6px;
     flex-shrink: 0;
+    margin-bottom: 0.15rem;
 }
 
 .step-card[data-step="1"] .step-icon {
@@ -292,26 +295,28 @@
 }
 
 .step-title {
-    font-size: clamp(1rem, 2.2vw, 1.3rem);
+    font-size: clamp(0.55rem, 1vw, 0.7rem);
     font-weight: 700;
     color: var(--texto-claro);
-    margin: 0 0 0.5rem 0;
-    line-height: 1.3;
+    margin: 0 0 0.15rem 0;
+    line-height: 1.1;
+    text-align: center;
 }
 
 .step-description {
-    font-size: clamp(0.8rem, 1.8vw, 1rem);
+    font-size: clamp(0.45rem, 0.8vw, 0.6rem);
     color: var(--texto-secundario);
-    margin: 0 0 1rem 0;
-    line-height: 1.4;
+    margin: 0 0 0.2rem 0;
+    line-height: 1.1;
+    text-align: center;
 }
 
 /* Step Details - Mais sutis */
 .step-detail {
-    font-size: clamp(0.8rem, 1.6vw, 1rem);
+    font-size: clamp(0.45rem, 0.8vw, 0.55rem);
     font-weight: 600;
-    padding: 0.4rem 1rem;
-    border-radius: 20px;
+    padding: 0.1rem 0.3rem;
+    border-radius: 6px;
     display: inline-block;
 }
 
@@ -333,51 +338,62 @@
 .step-card[data-step="4"] .step-detail {
     background: rgba(16, 185, 129, 0.2);
     color: var(--aesmoc-verde-claro);
-    font-size: 1.4rem;
+    font-size: clamp(0.5rem, 0.9vw, 0.65rem);
     font-weight: 700;
 }
 
 /* Badge especial */
 .step-badge {
     position: absolute;
-    top: 10px;
-    right: 15px;
+    top: 2px;
+    right: 2px;
     background: var(--verde-sucesso);
     color: var(--texto-principal);
-    padding: 0.25rem 0.6rem;
-    border-radius: 12px;
-    font-size: 0.7rem;
+    padding: 0.08rem 0.25rem;
+    border-radius: 4px;
+    font-size: clamp(0.4rem, 0.7vw, 0.5rem);
     font-weight: 700;
     box-shadow: 0 2px 10px rgba(34, 197, 94, 0.3);
     animation: pulse 2s ease-in-out infinite;
 }
 
-/* Cartão AESMOC */
+/* Cartão AESMOC - SEÇÃO INFERIOR FORÇADA */
 .cartao-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
+    display: block !important;
+    width: 100% !important;
+    max-width: 1200px;
+    margin: 1rem auto 0 auto !important;
+    padding: 0.5rem 0.75rem;
+    text-align: center;
     opacity: 0;
-    transform: translateX(50px);
-    animation: slideInRight 0.8s ease-out 2s forwards;
+    transform: translateY(30px);
+    animation: slideInUp 0.8s ease-out 2s forwards;
+    clear: both;
+    position: relative;
 }
 
+/* Cartão wrapper - INLINE BLOCK */
 .cartao-wrapper {
     position: relative;
     transform: perspective(1000px) rotateY(-10deg) rotateX(5deg);
     transition: all 0.4s ease;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 1rem 1rem 0;
 }
 
 .cartao-wrapper:hover {
     transform: perspective(1000px) rotateY(-5deg) rotateX(2deg) translateY(-10px);
 }
 
+/* Cartão imagem - VISIBILIDADE GARANTIDA */
 .cartao-img {
-    width: clamp(250px, 25vw, 320px);
+    width: clamp(150px, 16vw, 220px);
     height: auto;
-    border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    display: block;
+    flex-shrink: 0;
 }
 
 .cartao-glow {
@@ -394,39 +410,49 @@
     animation: glowPulse 3s ease-in-out infinite;
 }
 
-/* Box Informativo */
+/* Box Informativo - INLINE BLOCK */
 .info-box {
     background: var(--fundo-card);
-    border: 2px solid var(--borda-sutil);
-    border-radius: 20px;
-    padding: 1.5rem;
+    border: 1px solid var(--borda-sutil);
+    border-radius: 12px;
+    padding: 1rem;
     max-width: 300px;
-    box-shadow: 0 4px 20px var(--sombra-card);
+    width: auto;
+    box-shadow: 0 4px 15px var(--sombra-card);
+    text-align: left;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
 }
 
 .info-title {
-    font-size: 1.1rem;
+    font-size: clamp(0.7rem, 1.3vw, 0.9rem);
     font-weight: 700;
     color: var(--aesmoc-verde);
-    margin-bottom: 1rem;
+    margin-bottom: 0.6rem;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    justify-content: flex-start;
+    gap: 0.35rem;
 }
 
 .info-list {
     list-style: none;
     padding: 0;
     margin: 0;
+    max-width: 350px;
+    margin: 0 auto;
 }
 
 .info-list li {
     color: var(--texto-claro);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 0.95rem;
+    justify-content: flex-start;
+    gap: 0.35rem;
+    font-size: clamp(0.6rem, 1.1vw, 0.75rem);
+    text-align: left;
 }
 
 .info-list li::before {
@@ -443,23 +469,23 @@
     }
 }
 
-@keyframes stepAppearLeft {
+@keyframes stepAppearUp {
     to {
         opacity: 1;
-        transform: translateX(0);
+        transform: translateY(0);
     }
 }
 
-@keyframes stepAppearRight {
+@keyframes slideInUp {
     to {
         opacity: 1;
-        transform: translateX(0);
+        transform: translateY(0);
     }
 }
 
 @keyframes progressFill {
     to {
-        height: 100%;
+        width: 100%;
     }
 }
 
@@ -481,152 +507,195 @@
 }
 
 /* Responsividade */
-/* Tablets grandes e desktops pequenos */
-@media (max-width: 1200px) {
-    .main-container {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        max-width: 900px;
-    }
-    
-    .cartao-container {
-        order: -1;
-    }
-    
-    .steps-container {
-        padding: 1rem 0;
-        gap: 2.5rem;
-    }
-    
-    .step-card {
-        margin: 0 auto !important;
-        transform: translateX(0) !important;
-        max-width: 500px;
-    }
-    
-    .step-card:nth-child(odd),
-    .step-card:nth-child(even) {
-        margin: 0 auto !important;
-    }
-    
-    .step-number {
-        left: -25px !important;
-        right: auto !important;
-    }
-    
-    .timeline-line {
-        left: 25px;
-        transform: none;
-    }
-}
-
-/* Tablets */
-@media (max-width: 992px) {
+/* Telas muito baixas - modo ultra compacto */
+@media (max-height: 600px) {
     .slide-04 {
-        padding: 1.5rem;
+        padding: 0.15rem;
     }
     
     .header {
-        margin-bottom: 2rem;
+        margin-bottom: 0.15rem;
     }
     
-    .main-container {
-        gap: 1.5rem;
-        max-width: 700px;
-    }
-    
-    .steps-container {
-        gap: 2rem;
-    }
-    
-    .step-card {
-        padding: 1.25rem 1.5rem;
-        max-width: 450px;
-    }
-    
-    .step-title {
-        font-size: 1.2rem;
-    }
-    
-    .cartao-img {
-        width: clamp(220px, 30vw, 280px);
-    }
-}
-
-/* Tablets pequenos */
-@media (max-width: 768px) {
-    .slide-04 {
-        padding: 1rem;
-    }
-    
-    .header {
-        margin-bottom: 1.5rem;
+    .title {
+        font-size: clamp(0.6rem, 1.4vw, 0.9rem);
+        margin-bottom: 0.1rem;
     }
     
     .subtitle {
-        flex-direction: column;
-        gap: 0.75rem;
+        font-size: clamp(0.4rem, 0.8vw, 0.55rem);
+        gap: 0.15rem;
     }
     
     .subtitle-badge {
-        font-size: 1rem;
-        padding: 0.4rem 0.8rem;
+        padding: 0.08rem 0.2rem;
+        font-size: clamp(0.4rem, 0.7vw, 0.5rem);
     }
     
-    .main-container {
-        gap: 1rem;
-        margin-top: 1rem;
+    .timeline-container {
+        margin-bottom: 0.3rem;
     }
     
     .steps-container {
-        gap: 1.5rem;
-        padding: 0.5rem 0;
+        gap: 0.4rem;
+        padding: 0.5rem 0.2rem;
+        grid-template-columns: repeat(4, 1fr);
     }
     
     .timeline-line {
-        display: none;
-    }
-    
-    .step-number {
-        position: relative !important;
-        left: auto !important;
-        right: auto !important;
-        transform: none !important;
-        margin-bottom: 1rem;
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
+        left: 0.5rem;
+        right: 0.5rem;
+        height: 2px;
     }
     
     .step-card {
-        padding: 1.5rem;
-        flex-direction: column;
-        text-align: center;
-        gap: 1rem;
-        max-width: 100%;
+        padding: 0.3rem 0.15rem;
+        gap: 0.15rem;
+        border-radius: 4px;
+        min-height: 50px;
+    }
+    
+    .step-number {
+        width: 18px;
+        height: 18px;
+        top: -9px;
+        font-size: clamp(0.45rem, 0.7vw, 0.55rem);
+        border-width: 1px;
     }
     
     .step-icon {
-        font-size: 2rem;
-        width: 50px;
-        height: 50px;
+        font-size: clamp(0.7rem, 1vw, 0.9rem);
+        width: 20px;
+        height: 20px;
+        margin-bottom: 0.08rem;
     }
     
     .step-title {
-        font-size: 1.1rem;
+        font-size: clamp(0.4rem, 0.7vw, 0.5rem);
+        margin-bottom: 0.08rem;
     }
     
     .step-description {
-        font-size: 0.9rem;
+        font-size: clamp(0.35rem, 0.6vw, 0.45rem);
+        margin-bottom: 0.1rem;
+    }
+    
+    .step-detail {
+        font-size: clamp(0.35rem, 0.6vw, 0.45rem);
+        padding: 0.05rem 0.2rem;
+    }
+    
+    .step-badge {
+        top: 1px;
+        right: 1px;
+        padding: 0.05rem 0.15rem;
+        font-size: clamp(0.35rem, 0.5vw, 0.4rem);
+    }
+    
+    .cartao-container {
+        margin-top: 0.5rem !important;
+        padding: 0.3rem 0.5rem;
     }
     
     .cartao-img {
-        width: clamp(200px, 50vw, 250px);
+        width: clamp(80px, 10vw, 120px);
     }
     
     .info-box {
+        padding: 0.4rem;
+        max-width: 200px;
+    }
+    
+    .info-title {
+        font-size: clamp(0.45rem, 0.8vw, 0.6rem);
+        margin-bottom: 0.2rem;
+    }
+    
+    .info-list li {
+        font-size: clamp(0.4rem, 0.7vw, 0.5rem);
+        margin-bottom: 0.1rem;
+    }
+}
+
+/* Responsividade ATUALIZADA */
+@media (max-width: 1200px) {
+    .cartao-wrapper {
+        display: block;
+        margin: 0 auto 1rem auto;
+        text-align: center;
+    }
+    
+    .info-box {
+        display: block;
+        margin: 0 auto;
+        max-width: 90%;
+    }
+    
+    .cartao-img {
+        width: clamp(130px, 20vw, 180px);
+    }
+}
+
+@media (max-width: 992px) {
+    .slide-content {
+        padding: 0.4rem;
+    }
+    
+    .steps-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+        padding: 1rem 0.4rem;
+    }
+    
+    .timeline-line {
+        left: 0.4rem;
+        right: 0.4rem;
+        height: 4px;
+    }
+    
+    .cartao-container {
+        margin-top: 1rem !important;
+    }
+    
+    .cartao-wrapper {
+        display: block;
+        margin: 0 auto 1rem auto;
+    }
+    
+    .info-box {
+        display: block;
+        margin: 0 auto;
+        max-width: 95%;
+    }
+}
+
+@media (max-width: 768px) {
+    .steps-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.6rem;
+        padding: 0.75rem 0.3rem;
+    }
+    
+    .timeline-line {
+        left: 0.3rem;
+        right: 0.3rem;
+        height: 3px;
+    }
+    
+    .cartao-wrapper {
+        display: block;
+        margin: 0 auto 1rem auto;
+    }
+    
+    .cartao-img {
+        width: clamp(120px, 35vw, 160px);
+    }
+    
+    .info-box {
+        display: block;
+        margin: 0 auto;
         max-width: 100%;
-        padding: 1rem;
+        padding: 0.75rem;
     }
 }
 
@@ -692,72 +761,46 @@
     }
 }
 
-/* Mobile pequeno */
 @media (max-width: 480px) {
-    .slide-04 {
-        padding: 0.75rem;
-    }
-    
-    .header {
-        margin-bottom: 1rem;
-    }
-    
-    .subtitle {
-        gap: 0.5rem;
-    }
-    
-    .subtitle-badge {
-        font-size: 0.9rem;
-        padding: 0.3rem 0.6rem;
+    .slide-content {
+        padding: 0.25rem;
     }
     
     .steps-container {
-        gap: 1rem;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+        padding: 0.5rem 0.2rem;
+    }
+    
+    .timeline-line {
+        left: 0.2rem;
+        right: 0.2rem;
+        height: 2px;
     }
     
     .step-card {
-        padding: 1rem;
-        gap: 0.75rem;
+        min-height: 70px;
+        padding: 0.5rem 0.3rem;
     }
     
-    .step-number {
-        width: 35px;
-        height: 35px;
-        font-size: 1rem;
+    .cartao-container {
+        margin-top: 1rem !important;
+        padding: 0.4rem;
     }
     
-    .step-icon {
-        font-size: 1.5rem;
-        width: 40px;
-        height: 40px;
-    }
-    
-    .step-title {
-        font-size: 1rem;
-    }
-    
-    .step-description {
-        font-size: 0.85rem;
-    }
-    
-    .step-detail {
-        font-size: 0.9rem;
-        padding: 0.3rem 0.8rem;
+    .cartao-wrapper {
+        display: block;
+        margin: 0 auto 1rem auto;
     }
     
     .cartao-img {
-        width: clamp(180px, 60vw, 220px);
+        width: clamp(100px, 45vw, 140px);
     }
     
     .info-box {
-        padding: 0.75rem;
-    }
-    
-    .info-title {
-        font-size: 1rem;
-    }
-    
-    .info-list li {
-        font-size: 0.85rem;
+        display: block;
+        margin: 0 auto;
+        padding: 0.5rem;
+        max-width: 100%;
     }
 }
