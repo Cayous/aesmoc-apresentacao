@@ -143,13 +143,14 @@
     font-weight: 800;
     margin: 0 0 0.5rem 0;
     line-height: 1;
+    color: var(--texto-claro);
     text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
 }
 
 .slide-06 .title-word {
     display: inline-block;
     color: var(--texto-claro);
-    text-shadow: 2px 2px 6px rgba(0,0,0,0.9);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
     margin: 0 0.5rem;
     opacity: 0;
     transform: translateY(20px);
@@ -161,7 +162,7 @@
 
 .slide-06 .title-word.highlight {
     color: var(--status-azul);
-    text-shadow: 0 0 30px rgba(59, 130, 246, 0.8);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6), 0 0 15px rgba(59, 130, 246, 0.3);
     font-size: 110%;
 }
 
