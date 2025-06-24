@@ -149,7 +149,7 @@
 
 .slide-06 .title-word {
     display: inline-block;
-    color: var(--texto-claro);
+    color: var(--texto-claro) !important;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
     margin: 0 0.5rem;
     opacity: 0;
