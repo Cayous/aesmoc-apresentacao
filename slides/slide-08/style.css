@@ -30,7 +30,7 @@
     align-items: center;
     justify-content: flex-start;
     font-family: 'Inter', 'Segoe UI', sans-serif;
-    padding: 1.5rem;
+    padding: 1rem;
     margin: 0 !important;
     max-width: none !important;
     max-height: none !important;
@@ -126,22 +126,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 /* Header */
 .slide-08 .header-section {
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     opacity: 0;
     transform: translateY(-50px);
     animation: slideDown 1s ease-out 0.5s forwards;
 }
 
 .slide-08 .main-title {
-    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 900;
-    margin: 0 0 1rem 0;
+    margin: 0 0 0.5rem 0;
     line-height: 1.1;
 }
 
@@ -167,7 +167,7 @@
 }
 
 .slide-08 .subtitle {
-    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
     color: var(--success-green);
     font-weight: 600;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
@@ -180,7 +180,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
-    gap: 2rem;
+    gap: 1.2rem;
     width: 100%;
     flex: 1;
     opacity: 0;
@@ -195,32 +195,35 @@
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 25px;
-    padding: 2rem;
+    border-radius: 20px;
+    padding: 1.5rem;
     box-shadow: var(--card-shadow);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .slide-08 .speaker-intro {
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.2rem;
 }
 
 .slide-08 .speaker-avatar {
-    font-size: 2.5rem;
+    font-size: 2rem;
     filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
 }
 
 .slide-08 .speaker-name {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     font-weight: 700;
     color: var(--accent-orange);
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .slide-08 .speaker-quote {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: var(--text-light);
     font-style: italic;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
@@ -230,14 +233,15 @@
 .slide-08 .steps-container {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
+    flex: 1;
 }
 
 .slide-08 .step-item {
     display: flex;
     align-items: flex-start;
-    gap: 1.5rem;
-    padding: 1.5rem;
+    gap: 1rem;
+    padding: 1.2rem;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -261,11 +265,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     background: var(--gradient-primary);
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 800;
     border-radius: 50%;
     box-shadow: 0 8px 25px rgba(13, 148, 136, 0.4);
@@ -277,13 +281,13 @@
 }
 
 .slide-08 .step-icon {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    margin-bottom: 0.3rem;
     filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
 }
 
 .slide-08 .step-title {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     font-weight: 700;
     color: var(--text-light);
     margin-bottom: 0.5rem;
@@ -304,29 +308,34 @@
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 25px;
-    padding: 2rem;
+    border-radius: 20px;
+    padding: 1.5rem;
     box-shadow: var(--card-shadow);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .slide-08 .needs-grid {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    gap: 1rem;
+    flex: 1;
 }
 
 .slide-08 .need-card {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 1rem;
     padding: 1.2rem;
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
+    border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     transition: all 0.4s ease;
     cursor: pointer;
     opacity: 0;
     transform: translateX(30px);
+    flex: 1;
 }
 
 .slide-08 .need-card:nth-child(1) { animation: slideInRight 0.8s ease-out 2.2s forwards; }
@@ -340,24 +349,37 @@
 }
 
 .slide-08 .need-icon {
-    font-size: 2rem;
-    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--gradient-secondary);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 800;
+    border-radius: 50%;
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
     flex-shrink: 0;
+}
+
+.slide-08 .need-content {
+    flex: 1;
 }
 
 .slide-08 .need-title {
     font-size: 1.1rem;
     font-weight: 700;
     color: var(--text-light);
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.5rem;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .slide-08 .need-description {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: var(--text-light);
     opacity: 0.9;
-    line-height: 1.4;
+    line-height: 1.5;
 }
 
 /* Seção de contato */
