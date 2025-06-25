@@ -43,14 +43,14 @@
 }
 
 /* Partículas flutuantes */
-.particles {
+.slide-01 .particles {
     position: absolute;
     width: 100%;
     height: 100%;
     z-index: 2;
 }
 
-.particle {
+.slide-01 .particle {
     position: absolute;
     width: 4px;
     height: 4px;
@@ -67,7 +67,7 @@
 }
 
 /* Grid de luz no fundo */
-.grid-lines {
+.slide-01 .grid-lines {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -86,7 +86,7 @@
 }
 
 /* Container do conteúdo */
-.content-wrapper {
+.slide-01 .content-wrapper {
     position: relative;
     z-index: 10;
     text-align: center;
@@ -104,7 +104,7 @@
 }
 
 /* Logo container com efeito glow */
-.logo-container {
+.slide-01 .logo-container {
     margin-bottom: 1.5vh;
     position: relative;
     display: inline-block;
@@ -117,14 +117,14 @@
     50% { transform: translateY(-10px) scale(1.05); }
 }
 
-.logo-container img {
+.slide-01 .logo-container img {
     width: clamp(60px, 8vw, 120px);
     height: auto;
     filter: drop-shadow(0 0 30px rgba(5, 242, 219, 0.5));
     transition: all 0.3s ease;
 }
 
-.logo-container::before {
+.slide-01 .logo-container::before {
     content: '';
     position: absolute;
     top: 50%;
@@ -143,7 +143,7 @@
 }
 
 /* Título principal com efeito neon - TAMANHO AJUSTADO */
-.main-title {
+.slide-01 .main-title {
     font-size: clamp(1.8rem, 4.5vw, 3.2rem);
     font-weight: 800;
     margin-bottom: 1vh;
@@ -172,7 +172,7 @@
 }
 
 /* Texto digitado - TAMANHO AJUSTADO */
-.typewriter-container {
+.slide-01 .typewriter-container {
     min-height: 6vh;
     margin-bottom: 1vh;
     display: flex;
@@ -182,7 +182,7 @@
     flex-shrink: 0;
 }
 
-.persistent-lines {
+.slide-01 .persistent-lines {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -190,7 +190,7 @@
     margin-bottom: 0.5rem;
 }
 
-.persistent-line {
+.slide-01 .persistent-line {
     font-size: clamp(0.8rem, 2vw, 1.2rem);
     font-weight: 300;
     color: #ffffff;
@@ -207,14 +207,14 @@
     }
 }
 
-.current-line {
+.slide-01 .current-line {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 2.5rem;
 }
 
-.typewriter {
+.slide-01 .typewriter {
     font-size: clamp(0.8rem, 2vw, 1.2rem);
     font-weight: 300;
     color: #ffffff;
@@ -223,7 +223,7 @@
     display: inline-block;
 }
 
-.cursor {
+.slide-01 .cursor {
     display: inline-block;
     width: 3px;
     height: 2rem;
@@ -239,7 +239,7 @@
 }
 
 /* Subtítulo animado - TAMANHO AJUSTADO */
-.subtitle {
+.slide-01 .subtitle {
     font-size: clamp(0.9rem, 2vw, 1.3rem);
     font-weight: 300;
     color: rgba(255, 255, 255, 0.9);
@@ -261,7 +261,7 @@
 }
 
 /* Cards dos apresentadores */
-.apresentadores-container {
+.slide-01 .apresentadores-container {
     display: flex;
     gap: 2vw;
     justify-content: center;
@@ -273,7 +273,7 @@
     flex-wrap: wrap;
 }
 
-.apresentador-card {
+.slide-01 .apresentador-card {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -286,7 +286,7 @@
     max-width: 260px;
 }
 
-.apresentador-card::before {
+.slide-01 .apresentador-card::before {
     content: '';
     position: absolute;
     top: -2px;
@@ -308,30 +308,30 @@
     100% { background-position: 0% 50%; }
 }
 
-.apresentador-card:hover::before {
+.slide-01 .apresentador-card:hover::before {
     opacity: 1;
 }
 
-.apresentador-card:hover {
+.slide-01 .apresentador-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 40px rgba(5, 242, 219, 0.3);
 }
 
-.apresentador-nome {
+.slide-01 .apresentador-nome {
     font-size: clamp(0.95rem, 1.6vw, 1.2rem);
     font-weight: 600;
     color: #ffffff;
     margin-bottom: 3px;
 }
 
-.apresentador-empresa {
+.slide-01 .apresentador-empresa {
     font-size: clamp(0.8rem, 1.3vw, 1rem);
     color: #05F2DB;
     font-weight: 300;
 }
 
 /* Botão CTA */
-.cta-button {
+.slide-01 .cta-button {
     position: absolute;
     bottom: 4vh;
     left: 50%;
@@ -353,13 +353,13 @@
     letter-spacing: 1px;
 }
 
-.cta-button:hover {
+.slide-01 .cta-button:hover {
     transform: translateX(-50%) translateY(-3px);
     box-shadow: 0 8px 30px rgba(5, 242, 219, 0.6);
 }
 
 /* Indicador de scroll */
-.scroll-indicator {
+.slide-01 .scroll-indicator {
     position: absolute;
     bottom: 2vh;
     right: 2vw;
@@ -377,132 +377,132 @@
     50% { transform: translateY(-10px); }
 }
 
-.scroll-indicator i {
+.slide-01 .scroll-indicator i {
     font-size: 2rem;
     color: #05F2DB;
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
-    .content-wrapper {
+    .slide-01 .content-wrapper {
         padding: 0.5vh 1vw;
         height: 100vh;
         gap: 0.3vh;
     }
     
-    .logo-container {
+    .slide-01 .logo-container {
         margin-bottom: 1vh;
     }
     
-    .logo-container img {
+    .slide-01 .logo-container img {
         width: clamp(50px, 10vw, 80px);
     }
     
-    .main-title {
+    .slide-01 .main-title {
         font-size: clamp(1.4rem, 6vw, 2.5rem);
         margin-bottom: 0.5vh;
     }
     
-    .typewriter-container {
+    .slide-01 .typewriter-container {
         min-height: 5vh;
         margin-bottom: 0.5vh;
     }
     
-    .typewriter, .persistent-line {
+    .slide-01 .typewriter, .slide-01 .persistent-line {
         font-size: clamp(0.7rem, 2.2vw, 0.9rem);
     }
     
-    .subtitle {
+    .slide-01 .subtitle {
         font-size: clamp(0.8rem, 2.8vw, 1rem);
         margin-bottom: 1vh;
     }
     
-    .apresentadores-container {
+    .slide-01 .apresentadores-container {
         flex-direction: column;
         gap: 0.8vh;
         margin-bottom: 1vh;
     }
     
-    .apresentador-card {
+    .slide-01 .apresentador-card {
         padding: 10px 20px;
         min-width: 250px;
         max-width: 85vw;
     }
     
-    .apresentador-nome {
+    .slide-01 .apresentador-nome {
         font-size: clamp(0.85rem, 3.5vw, 1rem);
     }
     
-    .apresentador-empresa {
+    .slide-01 .apresentador-empresa {
         font-size: clamp(0.75rem, 3vw, 0.9rem);
     }
     
-    .cta-button {
+    .slide-01 .cta-button {
         bottom: 1vh;
         padding: 10px 25px;
         font-size: clamp(0.8rem, 2.5vw, 0.95rem);
     }
     
-    .scroll-indicator {
+    .slide-01 .scroll-indicator {
         display: none;
     }
 }
 
 @media (max-height: 700px) {
-    .content-wrapper {
+    .slide-01 .content-wrapper {
         height: 100vh;
         justify-content: space-evenly;
         padding: 0.5vh 2vw;
         gap: 0.2vh;
     }
     
-    .logo-container {
+    .slide-01 .logo-container {
         margin-bottom: 0.5vh;
     }
     
-    .logo-container img {
+    .slide-01 .logo-container img {
         width: clamp(50px, 6vw, 80px);
     }
     
-    .main-title {
+    .slide-01 .main-title {
         font-size: clamp(1.5rem, 3.5vw, 2.5rem);
         margin-bottom: 0.5vh;
     }
     
-    .typewriter-container {
+    .slide-01 .typewriter-container {
         min-height: 4vh;
         margin-bottom: 0.5vh;
     }
     
-    .typewriter, .persistent-line {
+    .slide-01 .typewriter, .slide-01 .persistent-line {
         font-size: clamp(0.75rem, 1.8vw, 1rem);
     }
     
-    .subtitle {
+    .slide-01 .subtitle {
         font-size: clamp(0.8rem, 1.6vw, 1.1rem);
         margin-bottom: 0.5vh;
     }
     
-    .apresentadores-container {
+    .slide-01 .apresentadores-container {
         gap: 0.5vh;
         margin-bottom: 0.5vh;
     }
     
-    .apresentador-card {
+    .slide-01 .apresentador-card {
         padding: 8px 15px;
         min-width: 160px;
         max-width: 220px;
     }
     
-    .apresentador-nome {
+    .slide-01 .apresentador-nome {
         font-size: clamp(0.8rem, 1.4vw, 1rem);
     }
     
-    .apresentador-empresa {
+    .slide-01 .apresentador-empresa {
         font-size: clamp(0.7rem, 1.2vw, 0.9rem);
     }
     
-    .cta-button {
+    .slide-01 .cta-button {
         position: relative;
         bottom: auto;
         transform: none;
@@ -514,61 +514,61 @@
 
 /* Media query para telas muito pequenas */
 @media (max-height: 500px) {
-    .content-wrapper {
+    .slide-01 .content-wrapper {
         padding: 0.2vh 1vw;
         gap: 0.1vh;
         justify-content: space-around;
     }
     
-    .logo-container {
+    .slide-01 .logo-container {
         margin-bottom: 0.2vh;
     }
     
-    .logo-container img {
+    .slide-01 .logo-container img {
         width: clamp(40px, 5vw, 60px);
     }
     
-    .main-title {
+    .slide-01 .main-title {
         font-size: clamp(1.2rem, 3vw, 2rem);
         margin-bottom: 0.2vh;
     }
     
-    .typewriter-container {
+    .slide-01 .typewriter-container {
         min-height: 3vh;
         margin-bottom: 0.2vh;
     }
     
-    .typewriter, .persistent-line {
+    .slide-01 .typewriter, .slide-01 .persistent-line {
         font-size: clamp(0.65rem, 1.5vw, 0.85rem);
     }
     
-    .subtitle {
+    .slide-01 .subtitle {
         font-size: clamp(0.7rem, 1.4vw, 0.9rem);
         margin-bottom: 0.2vh;
     }
     
-    .apresentadores-container {
+    .slide-01 .apresentadores-container {
         flex-direction: row;
         gap: 0.5vw;
         margin-bottom: 0.2vh;
     }
     
-    .apresentador-card {
+    .slide-01 .apresentador-card {
         padding: 5px 10px;
         min-width: 120px;
         max-width: 180px;
     }
     
-    .apresentador-nome {
+    .slide-01 .apresentador-nome {
         font-size: clamp(0.7rem, 1.2vw, 0.8rem);
         margin-bottom: 2px;
     }
     
-    .apresentador-empresa {
+    .slide-01 .apresentador-empresa {
         font-size: clamp(0.6rem, 1vw, 0.75rem);
     }
     
-    .cta-button {
+    .slide-01 .cta-button {
         padding: 5px 15px;
         font-size: clamp(0.65rem, 1.4vw, 0.8rem);
         margin-top: 0.2vh;
