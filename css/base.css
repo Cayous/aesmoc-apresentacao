@@ -13,9 +13,15 @@ html, body {
     overflow: hidden;
 }
 
+/* Variáveis GLOBAIS - APENAS AS ESSENCIAIS */
+:root {
+    --global-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --global-transition: all 0.3s ease;
+}
+
 /* Sobrescrever estilos padrão do Reveal.js */
 .reveal {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+    font-family: var(--global-font);
     font-size: 40px;
     font-weight: normal;
     color: #fff;
@@ -25,30 +31,15 @@ html, body {
     text-align: center;
 }
 
+/* REGRA GERAL - SEM display: flex FORÇADO */
 .reveal .slides > section {
     width: 100vw !important;
     height: 100vh !important;
     top: 0 !important;
     margin: 0 !important;
     padding: 0 !important;
-}
-
-.reveal .slides > section:not(.slide-06) {
-    display: flex !important;
-}
-
-.reveal .slides > section > *:not(.slide-06) {
-    width: 100%;
-    height: 100%;
-}
-
-/* Correções específicas para slide-06 */
-.reveal .slides > section .slide-06 {
-    display: flex !important;
-    flex-direction: column !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    position: relative !important;
+    /* REMOVIDO: display: flex !important; */
+    /* REMOVIDO: regras específicas para slide-06 */
 }
 
 /* Remover padding e margin padrão do Reveal */
@@ -71,73 +62,9 @@ html, body {
     word-wrap: break-word;
 }
 
-/* Variáveis CSS Customizadas */
-:root {
-    --primary-color: #2C5F5D;
-    --secondary-color: #5CDB95;
-    --accent-color: #05F2DB;
-    --text-light: #FFFFFF;
-    --text-dark: #2B3E50;
-    --gradient-1: linear-gradient(135deg, #2C5F5D 0%, #5CDB95 100%);
-    --gradient-2: linear-gradient(135deg, #05F2DB 0%, #2C5F5D 100%);
-    --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
-    --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
-    --shadow-lg: 0 10px 15px rgba(0,0,0,0.2);
-    --transition-default: all 0.3s ease;
-}
-
-/* Container padrão para slides - ATUALIZADO */
-.slide-container {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Títulos padrão */
-.slide-title {
-    font-size: 3rem;
-    color: var(--text-dark);
-    margin-bottom: 2rem;
-    text-align: center;
-}
-
-/* Botões padrão */
-.btn-primary {
-    background: var(--gradient-1);
-    color: var(--text-light);
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 50px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: var(--transition-default);
-    box-shadow: var(--shadow-md);
-}
-
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-}
-
-/* Cards padrão */
-.card {
-    background: white;
-    border-radius: 15px;
-    padding: 2rem;
-    box-shadow: var(--shadow-md);
-    transition: var(--transition-default);
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
-}
+/* REMOVIDO: variáveis CSS globais - cada slide define suas próprias */
+/* REMOVIDO: classes genéricas como .slide-container, .slide-title, .btn-primary, .card */
+/* Cada slide deve ter suas próprias classes com namespace específico */
 
 /* Remover controles em tela cheia para apresentação mais limpa */
 .reveal.overview .slides {

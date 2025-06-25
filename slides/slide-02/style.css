@@ -1,16 +1,16 @@
 /* ARQUIVO: slides/slide-02-o-problema/style.css */
 
-/* Variáveis de cores refinadas */
-:root {
-    --problema-vermelho: #DC2626;
-    --problema-laranja: #EA580C;
-    --problema-gradient: linear-gradient(135deg, #DC2626, #EA580C);
-    --texto-claro: #FAFAFA;
-    --texto-secundario: #E5E7EB;
-    --fundo-card: rgba(220, 38, 38, 0.1);
-    --borda-card: rgba(220, 38, 38, 0.3);
-    --fundo-escuro: #111827;
-    --calculadora-fundo: #1F2937;
+/* Variáveis ESPECÍFICAS do slide-02 - Encapsuladas */
+.slide-02 {
+    --s02-problema-vermelho: #DC2626;
+    --s02-problema-laranja: #EA580C;
+    --s02-problema-gradient: linear-gradient(135deg, #DC2626, #EA580C);
+    --s02-texto-claro: #FAFAFA;
+    --s02-texto-secundario: #E5E7EB;
+    --s02-fundo-card: rgba(220, 38, 38, 0.1);
+    --s02-borda-card: rgba(220, 38, 38, 0.3);
+    --s02-fundo-escuro: #111827;
+    --s02-calculadora-fundo: #1F2937;
 }
 
 /* Container principal */
@@ -31,8 +31,8 @@
     max-height: none !important;
 }
 
-/* Pattern sutil de fundo */
-.background-pattern {
+/* Pattern sutil de fundo - NAMESPACE ESPECÍFICO */
+.slide-02 .s02-background-pattern {
     position: absolute;
     top: 0;
     left: 0;
@@ -42,8 +42,8 @@
     z-index: 1;
 }
 
-/* Wrapper do conteúdo */
-.content-wrapper {
+/* Wrapper do conteúdo - NAMESPACE ESPECÍFICO */
+.slide-02 .s02-content-wrapper {
     position: relative;
     z-index: 10;
     width: 100%;
@@ -57,11 +57,11 @@
     height: 100vh;
 }
 
-/* Título principal */
-.main-title {
+/* Título principal - NAMESPACE ESPECÍFICO */
+.slide-02 .s02-main-title {
     font-size: clamp(1.5rem, 3.2vw, 2.4rem);
     font-weight: 700;
-    color: var(--texto-claro);
+    color: var(--s02-texto-claro);
     margin: 0 0 0.75rem 0;
     background: linear-gradient(135deg, #FAFAFA 0%, #E5E7EB 100%);
     background-clip: text;
@@ -80,8 +80,8 @@
     }
 }
 
-/* Contexto familiar */
-.family-context {
+/* Contexto familiar - NAMESPACE ESPECÍFICO */
+.slide-02 .s02-family-context {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -91,28 +91,28 @@
     animation: fadeInUp 0.8s ease-out 0.6s forwards;
 }
 
-.family-icon {
+.slide-02 .s02-family-icon {
     font-size: clamp(1.2rem, 2vw, 1.5rem);
 }
 
-.context-text {
-    color: var(--texto-secundario);
+.slide-02 .s02-context-text {
+    color: var(--s02-texto-secundario);
     font-size: clamp(0.75rem, 1.4vw, 0.95rem);
     font-weight: 400;
 }
 
-.context-badge {
-    background: var(--fundo-card);
-    border: 1px solid var(--borda-card);
-    color: var(--problema-vermelho);
+.slide-02 .s02-context-badge {
+    background: var(--s02-fundo-card);
+    border: 1px solid var(--s02-borda-card);
+    color: var(--s02-problema-vermelho);
     padding: 0.25rem 0.75rem;
     border-radius: 20px;
     font-size: 0.9rem;
     font-weight: 500;
 }
 
-/* Container dos cards de custos */
-.costs-container {
+/* Container dos cards de custos - NAMESPACE ESPECÍFICO */
+.slide-02 .s02-costs-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
@@ -121,10 +121,10 @@
     animation: fadeInUp 0.8s ease-out 0.9s forwards;
 }
 
-/* Cards de custos individuais */
-.cost-card {
-    background: var(--fundo-card);
-    border: 1px solid var(--borda-card);
+/* Cards de custos individuais - NAMESPACE ESPECÍFICO */
+.slide-02 .s02-cost-card {
+    background: var(--s02-fundo-card);
+    border: 1px solid var(--s02-borda-card);
     border-radius: 12px;
     padding: 1rem 0.75rem;
     text-align: center;
@@ -132,48 +132,48 @@
     backdrop-filter: blur(10px);
 }
 
-.cost-card:hover {
+.slide-02 .s02-cost-card:hover {
     transform: translateY(-5px) scale(1.02);
     box-shadow: 0 15px 30px rgba(220, 38, 38, 0.2);
     background: rgba(220, 38, 38, 0.15);
 }
 
-.card-icon {
+.slide-02 .s02-card-icon {
     font-size: clamp(1.5rem, 2.5vw, 2rem);
     margin-bottom: 0.25rem;
     display: block;
 }
 
-.card-label {
-    color: var(--texto-secundario);
+.slide-02 .s02-card-label {
+    color: var(--s02-texto-secundario);
     font-size: clamp(0.7rem, 1.2vw, 0.85rem);
     font-weight: 500;
     margin-bottom: 0.2rem;
 }
 
-.card-value {
-    color: var(--texto-claro);
+.slide-02 .s02-card-value {
+    color: var(--s02-texto-claro);
     font-size: clamp(1.4rem, 2.5vw, 1.8rem);
     font-weight: 700;
     margin-bottom: 0.2rem;
 }
 
-.card-period {
-    color: var(--texto-secundario);
+.slide-02 .s02-card-period {
+    color: var(--s02-texto-secundario);
     font-size: clamp(0.6rem, 1vw, 0.7rem);
     opacity: 0.8;
 }
 
-/* Seção da calculadora */
-.calculator-section {
+/* Seção da calculadora - NAMESPACE ESPECÍFICO */
+.slide-02 .s02-calculator-section {
     margin-bottom: 1rem;
     opacity: 0;
     animation: fadeInUp 0.8s ease-out 1.2s forwards;
 }
 
-.calculator-display {
-    background: var(--calculadora-fundo);
-    border: 2px solid var(--borda-card);
+.slide-02 .s02-calculator-display {
+    background: var(--s02-calculadora-fundo);
+    border: 2px solid var(--s02-borda-card);
     border-radius: 12px;
     padding: 1rem;
     max-width: 900px;
@@ -181,15 +181,15 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-.calc-label {
-    color: var(--texto-secundario);
+.slide-02 .s02-calc-label {
+    color: var(--s02-texto-secundario);
     font-size: clamp(0.7rem, 1.4vw, 0.9rem);
     margin-bottom: 0.5rem;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-.calc-operation {
+.slide-02 .s02-calc-operation {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -199,26 +199,26 @@
     flex-wrap: wrap;
 }
 
-.calc-number {
-    color: var(--texto-claro);
+.slide-02 .s02-calc-number {
+    color: var(--s02-texto-claro);
     font-size: clamp(1rem, 2vw, 1.3rem);
     font-weight: 600;
 }
 
-.calc-operator {
-    color: var(--problema-laranja);
+.slide-02 .s02-calc-operator {
+    color: var(--s02-problema-laranja);
     font-size: clamp(1.1rem, 2.2vw, 1.4rem);
     font-weight: 700;
 }
 
-.calc-equals {
-    color: var(--problema-vermelho);
+.slide-02 .s02-calc-equals {
+    color: var(--s02-problema-vermelho);
     font-size: clamp(1.3rem, 2.6vw, 1.8rem);
     font-weight: 700;
 }
 
-.calc-result {
-    color: var(--problema-vermelho);
+.slide-02 .s02-calc-result {
+    color: var(--s02-problema-vermelho);
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 800;
     text-shadow: 0 0 20px rgba(220, 38, 38, 0.5);
@@ -236,8 +236,8 @@
     }
 }
 
-/* Seção inferior combinada */
-.bottom-section {
+/* Seção inferior combinada - NAMESPACE ESPECÍFICO */
+.slide-02 .s02-bottom-section {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 1.5rem;
@@ -245,8 +245,8 @@
     margin-top: 0.5rem;
 }
 
-/* Comparativo de impacto */
-.impact-comparison {
+/* Comparativo de impacto - NAMESPACE ESPECÍFICO */
+.slide-02 .s02-impact-comparison {
     display: flex;
     justify-content: space-around;
     gap: 1rem;
@@ -254,7 +254,7 @@
     animation: fadeInUp 0.8s ease-out 1.5s forwards;
 }
 
-.comparison-item {
+.slide-02 .s02-comparison-item {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -263,25 +263,25 @@
     flex: 1;
 }
 
-.comparison-icon {
+.slide-02 .s02-comparison-icon {
     font-size: clamp(1.2rem, 2vw, 1.5rem);
     margin-bottom: 0.2rem;
 }
 
-.comparison-text {
-    color: var(--texto-secundario);
+.slide-02 .s02-comparison-text {
+    color: var(--s02-texto-secundario);
     font-size: clamp(0.6rem, 1.1vw, 0.7rem);
     line-height: 1.2;
 }
 
-/* Impacto anual */
-.annual-impact {
+/* Impacto anual - NAMESPACE ESPECÍFICO */
+.slide-02 .s02-annual-impact {
     opacity: 0;
     animation: fadeInUp 0.8s ease-out 1.8s forwards;
 }
 
-.impact-label {
-    color: var(--texto-secundario);
+.slide-02 .s02-impact-label {
+    color: var(--s02-texto-secundario);
     font-size: clamp(0.7rem, 1.3vw, 0.85rem);
     margin-bottom: 0.5rem;
     text-transform: uppercase;
@@ -289,7 +289,7 @@
     text-align: center;
 }
 
-.impact-bar-container {
+.slide-02 .s02-impact-bar-container {
     position: relative;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 8px;
@@ -300,12 +300,12 @@
     justify-content: center;
 }
 
-.impact-bar {
+.slide-02 .s02-impact-bar {
     position: absolute;
     left: 0;
     top: 0;
     height: 100%;
-    background: var(--problema-gradient);
+    background: var(--s02-problema-gradient);
     border-radius: 10px;
     width: 0%;
     animation: barGrow 2s ease-out 2.1s forwards;
@@ -318,10 +318,10 @@
     }
 }
 
-.impact-value {
+.slide-02 .s02-impact-value {
     position: relative;
     z-index: 2;
-    color: var(--texto-claro);
+    color: var(--s02-texto-claro);
     font-size: 2.5rem;
     font-weight: 700;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
@@ -369,22 +369,22 @@
         padding: 0.5rem 0.25rem;
     }
     
-    .card-icon {
+    .slide-02 .s02-card-icon {
         font-size: clamp(1rem, 1.8vw, 1.3rem);
         margin-bottom: 0.1rem;
     }
     
-    .card-label {
+    .slide-02 .s02-card-label {
         font-size: clamp(0.6rem, 1vw, 0.75rem);
         margin-bottom: 0.1rem;
     }
     
-    .card-value {
+    .slide-02 .s02-card-value {
         font-size: clamp(1rem, 2vw, 1.3rem);
         margin-bottom: 0.1rem;
     }
     
-    .card-period {
+    .slide-02 .s02-card-period {
         font-size: clamp(0.5rem, 0.8vw, 0.6rem);
     }
     
@@ -392,33 +392,33 @@
         margin-bottom: 0.5rem;
     }
     
-    .calculator-display {
+    .slide-02 .s02-calculator-display {
         padding: 0.5rem;
     }
     
-    .calc-label {
+    .slide-02 .s02-calc-label {
         font-size: clamp(0.6rem, 1.2vw, 0.75rem);
         margin-bottom: 0.25rem;
     }
     
-    .calc-operation {
+    .slide-02 .s02-calc-operation {
         gap: 0.25rem;
         margin-bottom: 0.5rem;
     }
     
-    .calc-number {
+    .slide-02 .s02-calc-number {
         font-size: clamp(0.8rem, 1.6vw, 1rem);
     }
     
-    .calc-operator {
+    .slide-02 .s02-calc-operator {
         font-size: clamp(0.9rem, 1.8vw, 1.1rem);
     }
     
-    .calc-equals {
+    .slide-02 .s02-calc-equals {
         font-size: clamp(1rem, 2vw, 1.3rem);
     }
     
-    .calc-result {
+    .slide-02 .s02-calc-result {
         font-size: clamp(1.4rem, 2.8vw, 2rem);
     }
     
@@ -427,21 +427,21 @@
         margin-top: 0.25rem;
     }
     
-    .comparison-icon {
+    .slide-02 .s02-comparison-icon {
         font-size: clamp(1rem, 1.6vw, 1.2rem);
         margin-bottom: 0.1rem;
     }
     
-    .comparison-text {
+    .slide-02 .s02-comparison-text {
         font-size: clamp(0.5rem, 0.9vw, 0.6rem);
     }
     
-    .impact-label {
+    .slide-02 .s02-impact-label {
         font-size: clamp(0.6rem, 1.1vw, 0.75rem);
         margin-bottom: 0.25rem;
     }
     
-    .impact-bar-container {
+    .slide-02 .s02-impact-bar-container {
         height: 30px;
     }
 }
@@ -471,12 +471,12 @@
         padding: 0.75rem 0.5rem;
     }
     
-    .card-icon {
+    .slide-02 .s02-card-icon {
         font-size: clamp(1.2rem, 2vw, 1.5rem);
         margin-bottom: 0.15rem;
     }
     
-    .card-value {
+    .slide-02 .s02-card-value {
         font-size: clamp(1.2rem, 2.2vw, 1.5rem);
     }
     
@@ -484,11 +484,11 @@
         margin-bottom: 0.75rem;
     }
     
-    .calculator-display {
+    .slide-02 .s02-calculator-display {
         padding: 0.75rem;
     }
     
-    .calc-result {
+    .slide-02 .s02-calc-result {
         font-size: clamp(1.6rem, 3.2vw, 2.4rem);
     }
     
@@ -497,7 +497,7 @@
         margin-top: 0.25rem;
     }
     
-    .impact-bar-container {
+    .slide-02 .s02-impact-bar-container {
         height: 35px;
     }
 }
@@ -562,7 +562,7 @@
         padding: 1.25rem 0.75rem;
     }
     
-    .card-value {
+    .slide-02 .s02-card-value {
         font-size: clamp(1.6rem, 3.2vw, 2rem);
     }
     
@@ -570,11 +570,11 @@
         margin-bottom: 1.5rem;
     }
     
-    .calc-operation {
+    .slide-02 .s02-calc-operation {
         gap: 0.5rem;
     }
     
-    .calc-result {
+    .slide-02 .s02-calc-result {
         font-size: clamp(2.5rem, 5vw, 3.5rem);
     }
     
@@ -587,12 +587,12 @@
         gap: 1rem;
     }
     
-    .comparison-item {
+    .slide-02 .s02-comparison-item {
         flex-direction: row;
         gap: 0.75rem;
     }
     
-    .impact-value {
+    .slide-02 .s02-impact-value {
         font-size: clamp(1.5rem, 3.5vw, 2rem);
     }
 }
@@ -627,11 +627,11 @@
         margin-bottom: 1rem;
     }
     
-    .calculator-display {
+    .slide-02 .s02-calculator-display {
         padding: 1rem;
     }
     
-    .calc-result {
+    .slide-02 .s02-calc-result {
         font-size: clamp(2rem, 5vw, 2.5rem);
     }
     
@@ -639,11 +639,11 @@
         gap: 1rem;
     }
     
-    .comparison-text {
+    .slide-02 .s02-comparison-text {
         font-size: 0.7rem;
     }
     
-    .impact-value {
+    .slide-02 .s02-impact-value {
         font-size: clamp(1.2rem, 4vw, 1.5rem);
     }
 }
