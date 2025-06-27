@@ -140,10 +140,10 @@ function showPeriodicFacts() {
     }
     
     const facts = [
-        "💡 Isso é mais que o PIB de alguns países pequenos por família!",
-        "⏰ Em 10 anos, seriam R$ 288.000 gastos",
-        "🏠 Equivale a uma entrada de apartamento todo ano",
-        "📊 Representa 3 salários mínimos mensais"
+        "💡 O gasto médio anual é bastante significativo para o orçamento familiar.",
+        "⏰ Em 10 anos, o valor acumulado pode ultrapassar os R$ 280.000.",
+        "🏠 Esse montante poderia ser usado em metas maiores, como a compra de um imóvel.",
+        "📊 Representa uma fatia relevante da renda mensal da maioria das famílias."
     ];
     
     let currentFact = 0;
