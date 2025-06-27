@@ -160,69 +160,8 @@ function animatePartnerBenefits() {
     }, 2000);
 }
 
-// Função para animar setores procurados
-function animateSectors() {
-    const sectorTags = document.querySelectorAll('.sector-tag');
-    
-    setTimeout(() => {
-        sectorTags.forEach((tag, index) => {
-            setTimeout(() => {
-                tag.style.opacity = '1';
-                tag.style.transform = 'scale(1)';
-                
-                // Destacar setores prioritários
-                if (tag.classList.contains('priority')) {
-                    setTimeout(() => {
-                        tag.style.animation = 'priorityPulse 2s ease-in-out infinite';
-                    }, 300);
-                }
-            }, index * 150);
-        });
-    }, 3000);
-}
 
-// Função para countdown dinâmico
-function startCountdown() {
-    const daysElement = document.getElementById('daysCount');
-    const hoursElement = document.getElementById('hoursCount');
-    
-    if (!daysElement || !hoursElement) return;
-    
-    let days = 35;
-    let hours = 12;
-    
-    // Usar TimerManager para controlar o timer
-    const slideId = 'slide-06';
-    
-    if (window.Utils && window.Utils.TimerManager) {
-        // Simular countdown (para demo)
-        window.Utils.TimerManager.setInterval(slideId, 'countdown', () => {
-            if (hours > 0) {
-                hours--;
-            } else if (days > 0) {
-                days--;
-                hours = 23;
-            }
-            
-            // Animar mudança de números
-            animateNumberChange(daysElement, days);
-            animateNumberChange(hoursElement, hours);
-            
-        }, 2000); // A cada 2 segundos para demo
-    }
-}
 
-// Função para animar mudança de números
-function animateNumberChange(element, newValue) {
-    element.style.transform = 'scale(1.2)';
-    element.style.color = '#f59e0b';
-    
-    setTimeout(() => {
-        element.textContent = newValue.toString().padStart(2, '0');
-        element.style.transform = 'scale(1)';
-        element.style.color = '';
-    }, 200);
-}
 
 // Função para adicionar interatividade
 function addInteractivity() {
@@ -244,17 +183,6 @@ function addInteractivity() {
         });
     });
     
-    // Interatividade nos setores
-    const sectorTags = document.querySelectorAll('.sector-tag');
-    sectorTags.forEach(tag => {
-        tag.addEventListener('click', () => {
-            tag.style.animation = 'sectorClick 0.6s ease-out';
-            setTimeout(() => {
-                tag.style.animation = tag.classList.contains('priority') ? 
-                    'priorityPulse 2s ease-in-out infinite' : '';
-            }, 600);
-        });
-    });
     
     // Interatividade no banner de ação
     const actionBanner = document.querySelector('.action-banner');
@@ -312,35 +240,21 @@ function highlightOpportunities() {
     const slideId = 'slide-06';
     
     if (window.Utils && window.Utils.TimerManager) {
-        // Destacar CTA principal
-        window.Utils.TimerManager.setInterval(slideId, 'ctaHighlight', () => {
-            const cta = document.querySelector('.partnership-cta');
-            if (cta) {
-                cta.style.transform = 'scale(1.02)';
-                cta.style.boxShadow = '0 15px 40px rgba(59, 130, 246, 0.3)';
-                
-                setTimeout(() => {
-                    cta.style.transform = 'scale(1)';
-                    cta.style.boxShadow = '0 10px 30px rgba(59, 130, 246, 0.2)';
-                }, 800);
-            }
-        }, 6000);
-        
-        // Rotacionar destaque dos setores prioritários
-        window.Utils.TimerManager.setInterval(slideId, 'sectorRotate', () => {
-            const prioritySectors = document.querySelectorAll('.sector-tag.priority');
-            const randomSector = prioritySectors[Math.floor(Math.random() * prioritySectors.length)];
+        // Destacar benefícios periodicamente
+        window.Utils.TimerManager.setInterval(slideId, 'benefitsHighlight', () => {
+            const benefits = document.querySelectorAll('.benefit-item');
+            const randomBenefit = benefits[Math.floor(Math.random() * benefits.length)];
             
-            if (randomSector) {
-                randomSector.style.transform = 'scale(1.1)';
-                randomSector.style.boxShadow = '0 5px 20px rgba(245, 158, 11, 0.5)';
+            if (randomBenefit) {
+                randomBenefit.style.transform = 'translateX(10px) scale(1.02)';
+                randomBenefit.style.background = 'rgba(255, 255, 255, 0.08)';
                 
                 setTimeout(() => {
-                    randomSector.style.transform = 'scale(1)';
-                    randomSector.style.boxShadow = '';
+                    randomBenefit.style.transform = 'translateX(0) scale(1)';
+                    randomBenefit.style.background = 'rgba(255, 255, 255, 0.03)';
                 }, 1000);
             }
-        }, 4000);
+        }, 5000);
     }
 }
 
@@ -350,7 +264,7 @@ function createOpportunityAlerts() {
         "🚀 Vagas limitadas para parceiros fundadores!",
         "💎 Exclusividade por categoria garantida",
         "📈 Marketing de lançamento incluído",
-        "🎯 Acesso direto a 1.500+ associados"
+        "🎯 Acesso direto aos associados AESMOC"
     ];
     
     let currentAlert = 0;
@@ -483,13 +397,6 @@ function initSlide06Status() {
         animatePartnerBenefits();
     }, 1500);
     
-    setTimeout(() => {
-        animateSectors();
-    }, 2000);
-    
-    setTimeout(() => {
-        startCountdown();
-    }, 2500);
     
     // Adicionar interatividade
     addInteractivity();
@@ -528,7 +435,7 @@ function cleanupSlide06() {
     });
     
     // Remover event listeners clonando elementos
-    const interactiveElements = document.querySelectorAll('.slide-06 .status-item, .slide-06 .sector-tag, .slide-06 .action-banner');
+    const interactiveElements = document.querySelectorAll('.slide-06 .status-item, .slide-06 .benefit-item, .slide-06 .action-banner');
     interactiveElements.forEach(element => {
         const newElement = element.cloneNode(true);
         if (element.parentNode) {
