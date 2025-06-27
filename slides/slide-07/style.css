@@ -244,10 +244,10 @@
 /* Grid de benefícios */
 .slide-07 .benefits-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1000px;
     opacity: 0;
     transform: translateY(50px);
     animation: slideUp 1s ease-out 2.2s forwards;
@@ -290,16 +290,12 @@
 }
 
 /* Animações escalonadas dos cards */
-.slide-07 .card-1 {
+.slide-07 .card-2 {
     animation: cardReveal 0.8s ease-out 2.5s forwards;
 }
 
-.slide-07 .card-2 {
-    animation: cardReveal 0.8s ease-out 2.8s forwards;
-}
-
 .slide-07 .card-3 {
-    animation: cardReveal 0.8s ease-out 3.1s forwards;
+    animation: cardReveal 0.8s ease-out 2.8s forwards;
 }
 
 /* Header do card */
@@ -603,7 +599,7 @@
 /* Responsividade */
 @media (max-width: 1200px) {
     .slide-07 .benefits-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
     }
     
@@ -826,7 +822,7 @@
     }
     
     .slide-07 .benefits-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
     }
     

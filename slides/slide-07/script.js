@@ -119,16 +119,6 @@ function addCardInteractivity() {
 // Função para mostrar detalhes do benefício
 function showBenefitDetails(benefitType) {
     const details = {
-        personal: {
-            title: "Cartão Gratuito Pessoal",
-            benefits: [
-                "Cartão físico personalizado",
-                "App móvel com cartão digital",
-                "Acesso a mais de 500 parceiros",
-                "Descontos de 5% a 30%",
-                "Validade vitalícia enquanto for síndico"
-            ]
-        },
         condominium: {
             title: "Descontos Condominiais",
             benefits: [
