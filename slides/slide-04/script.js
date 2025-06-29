@@ -92,7 +92,7 @@ function showStepDetails(stepNumber) {
         },
         2: {
             title: "Adquira seu cartão",
-            content: "Contrate pelo site oficial ou WhatsApp por apenas R$ 25/mês. Processo 100% online e rápido."
+            content: "Contratação pelo site oficial ou WhatsApp por preço acessível. Processo 100% online e rápido."
         },
         3: {
             title: "Receba em casa",
